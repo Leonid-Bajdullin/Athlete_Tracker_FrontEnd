@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* General */
+
+/* Registration form */
+.registrationForm {
+  width: 40%;
+  height: 60%;
+}
+
+.registrationForm label {
+  color: rgb(0, 102, 255);
+  font-weight: 600;
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
