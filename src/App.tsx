@@ -1,14 +1,16 @@
 import React from 'react';
 
 import './App.css';
-import { RegistrationForm } from './components/RegistrationForm';
+import MainPage from './components/MainPage';
+// import { RegistrationForm } from './components/RegistrationForm';
+import { Example } from './components/ModalExample';
 
 const App: React.FC = () => {
   return (
     <div>
-      <header>My App</header>
-      <RegistrationForm />
-      <footer>Footer</footer>
+      <MainPage />
+      {/* <RegistrationForm /> */}
+      <Example />
     </div>
   );
 };
