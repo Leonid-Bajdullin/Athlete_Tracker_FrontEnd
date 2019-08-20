@@ -1,7 +1,7 @@
 // prettier-ignore
 
 class CommunicationService {
-  static fetchFunc (method: string, data:{}, route: string) {
+  static fetchFunc (method: string, route: string, data?:{}) {
       let obj = {
         headers: {
           'Accept': 'application/json',
