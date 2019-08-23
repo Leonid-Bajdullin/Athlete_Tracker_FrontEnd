@@ -1,0 +1,22 @@
+$teamcard-border-radius: 0.5rem;
+
+.team-card {
+  margin: 10px;
+  // border: 2px solid $base-blue-color;
+  border-radius: $teamcard-border-radius;
+  box-shadow: 0.25rem 0.25rem 0.5rem grey;
+  img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: $teamcard-border-radius $teamcard-border-radius 0rem 0rem;
+  }
+  .team-info {
+    height: 40%;
+    background-color: white;
+    border-radius: 0rem 0rem $teamcard-border-radius $teamcard-border-radius;
+    div {
+      padding: 0rem 1rem;
+    }
+  }
+}

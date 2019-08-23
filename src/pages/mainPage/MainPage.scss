@@ -1,0 +1,13 @@
+$base-grey-color: #f0f0f0;
+
+.teamcards-list-container {
+  padding: 2rem 5rem;
+  background-color: $base-grey-color;
+}
+
+.all-teamcards-list {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 500px;
+  padding: 0.5rem;
+}
