@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* General */
+$base-blue-color: #4e5de5;
+$base-grey-color: #f0f0f0;
+$modal-padding: 0.75rem;
+
+.modal-body {
+  background-color: $base-grey-color;
+}
+.modal-header {
+  background-color: $base-blue-color;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+/* MainPage */
+.mainpage-container {
+  position: relative;
+  min-height: 100vh;
+
+  .content-wrap {
+    padding-bottom: 2.5rem;
+  }
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  height: 4rem;
+  background-color: $base-blue-color;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background-color: $base-blue-color;
+}
