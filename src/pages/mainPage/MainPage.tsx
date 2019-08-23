@@ -7,7 +7,7 @@ import ironman from '../../photos/ironman.jpg';
 import avengers from '../../photos/avengers.jpg';
 import { TeamCard } from '../../components/TeamCard/TeamCard';
 import './MainPage.css';
-import BaseService from '../../services/BaseService';
+// import { BaseService } from '../../services/BaseService';
 
 @observer
 export class MainPage extends Component<{}, { allTeamsList: any }> {
@@ -68,10 +68,10 @@ export class MainPage extends Component<{}, { allTeamsList: any }> {
     };
   }
 
-  async componentDidMount() {
-    const teamsList = await BaseService.fetchFunc('GET', 'api/teams');
-    this.setState({ allTeamsList: teamsList });
-  }
+  // async componentDidMount() {
+  //   const teamsList = await BaseService.fetchFunc('GET', 'api/teams');
+  //   this.setState({ allTeamsList: teamsList });
+  // }
 
   render() {
     return (

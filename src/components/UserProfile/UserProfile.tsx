@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Form, Col, Image, Button, Modal } from 'react-bootstrap';
 import { Formik } from 'formik';
-import { observer } from 'mobx-react';
 
 import './UserProfile.css';
 import ironman from '../../photos/ironman.jpg';
 import { userProfileSchema } from '../../validation/validationSchemaYup';
-import BaseService from '../../services/BaseService';
+// import { BaseService } from '../../services/BaseService';
 
 const initialValues = {
   firstName: 'Leo',
@@ -24,16 +23,15 @@ const initialValues = {
   photoUrl: ''
 };
 
-export const UserProfile = observer((props: any) => {
+export const UserProfile = (props: any) => {
   const [show, setShow] = useState(false);
-  const [user, setUser] = useState(props.store.currentUser);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const submitProfileChanges = async (values: any) => {
-    await BaseService.fetchFunc('PUT', 'api/login', values);
-  };
+  // const submitProfileChanges = async (values: any) => {
+  //   await BaseService.fetchFunc('PUT', 'api/login', values);
+  // };
 
   return (
     <>
@@ -43,12 +41,12 @@ export const UserProfile = observer((props: any) => {
 
       <Modal size='xl' show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Edit {user}</Modal.Title>
+          <Modal.Title>Edit User</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Formik
             validationSchema={userProfileSchema}
-            onSubmit={submitProfileChanges}
+            onSubmit={handleClose}
             initialValues={initialValues}
           >
             {({ handleSubmit, handleChange, values: userInputs, errors }) => (
@@ -73,6 +71,7 @@ export const UserProfile = observer((props: any) => {
                       </Form.Control.Feedback>
                     </Form.Group>
                   </Col>
+
                   <Col md={4}>
                     <Form.Group>
                       <Form.Label>First name</Form.Label>
@@ -159,11 +158,11 @@ export const UserProfile = observer((props: any) => {
                       </Form.Control.Feedback>
                     </Form.Group>
                   </Col>
+
                   <Col md={4}>
                     <Form.Group>
                       <Form.Label>Address</Form.Label>
                       <Form.Control
-                        size='sm'
                         name='city'
                         type='text'
                         placeholder='Enter your city'
@@ -176,7 +175,6 @@ export const UserProfile = observer((props: any) => {
                       </Form.Control.Feedback>
                       <Form.Label />
                       <Form.Control
-                        size='sm'
                         name='postalCode'
                         type='text'
                         placeholder='Enter your postal code'
@@ -189,7 +187,6 @@ export const UserProfile = observer((props: any) => {
                       </Form.Control.Feedback>
                       <Form.Label />
                       <Form.Control
-                        size='sm'
                         name='street'
                         type='text'
                         placeholder='Enter your street'
@@ -202,7 +199,6 @@ export const UserProfile = observer((props: any) => {
                       </Form.Control.Feedback>
                       <Form.Label />
                       <Form.Control
-                        size='sm'
                         name='house'
                         type='text'
                         placeholder='Enter your house'
@@ -215,7 +211,6 @@ export const UserProfile = observer((props: any) => {
                       </Form.Control.Feedback>
                       <Form.Label />
                       <Form.Control
-                        size='sm'
                         name='apartment'
                         type='text'
                         placeholder='Enter your apartment'
@@ -239,4 +234,4 @@ export const UserProfile = observer((props: any) => {
       </Modal>
     </>
   );
-});
+};
