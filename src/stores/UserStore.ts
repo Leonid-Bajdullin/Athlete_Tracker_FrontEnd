@@ -1,8 +1,10 @@
 import { observable, action } from 'mobx';
+
 import { BaseService } from '../services/BaseService';
+import { RootStore } from './RootStore';
 
 export class UserStore {
-  constructor(rootStore) {
+  constructor(rootStore: any) {
     this.rootStore = rootStore;
   }
 
