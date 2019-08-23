@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 import './TeamCard.css';
 
@@ -23,26 +23,5 @@ export function TeamCard(props: {
         </div>
       </div>
     </section>
-
-    // <Card
-    //   border='primary'
-    //   style={{
-    //     width: '14rem',
-    //     height: '21rem',
-    //     margin: '0.5rem',
-    //     borderRadius: '0.5rem'
-    //   }}
-    // >
-    //   <Card.Img variant='top' width='100%' height='50%' src={props.photoUrl} />
-    //   <Card.Body>
-    //     <Card.Title>
-    //       {props.id} : {props.name}
-    //     </Card.Title>
-    //     <Card.Text>
-    //       <div>Members count : {props.memberCount}</div>
-    //     </Card.Text>
-    //     <Button variant='primary'>View</Button>
-    //   </Card.Body>
-    // </Card>
   );
 }
