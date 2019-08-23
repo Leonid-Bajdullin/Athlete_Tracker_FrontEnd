@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import { Form, Button, Modal } from 'react-bootstrap';
 
 import { loginSchema } from '../../validation/validationSchemaYup';
-import { UserService } from '../../services/UserService';
+import BaseService from '../../services/BaseService';
 
 const initialValues = {
   email: '',
@@ -15,6 +15,10 @@ export const LoginForm = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const submitLogin = async (values: any) => {
+    await BaseService.fetchFunc('POST', 'api/login', values);
+  };
 
   return (
     <>
@@ -29,7 +33,7 @@ export const LoginForm = () => {
         <Modal.Body>
           <Formik
             validationSchema={loginSchema}
-            onSubmit={UserService.submitLogin}
+            onSubmit={submitLogin}
             initialValues={initialValues}
           >
             {({

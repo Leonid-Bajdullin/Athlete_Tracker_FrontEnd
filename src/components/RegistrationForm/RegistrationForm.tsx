@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import { Form, Button, Modal } from 'react-bootstrap';
 
 import { registrationSchema } from '../../validation/validationSchemaYup';
-import { UserService } from '../../services/UserService';
+import BaseService from '../../services/BaseService';
 
 const initialValues = {
   firstName: '',
@@ -19,6 +19,10 @@ export const RegistrationForm = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const submitRegistration = async (values: any) => {
+    await BaseService.fetchFunc('POST', 'api/users', values);
+  };
+
   return (
     <>
       <Button variant='success' onClick={handleShow}>
@@ -32,7 +36,7 @@ export const RegistrationForm = () => {
         <Modal.Body>
           <Formik
             validationSchema={registrationSchema}
-            onSubmit={UserService.submitRegistration}
+            onSubmit={submitRegistration}
             initialValues={initialValues}
           >
             {({

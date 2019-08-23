@@ -6,8 +6,7 @@ import { observer } from 'mobx-react';
 import './UserProfile.css';
 import ironman from '../../photos/ironman.jpg';
 import { userProfileSchema } from '../../validation/validationSchemaYup';
-import { UserService } from '../../services/UserService';
-import { UserStore } from '../../stores/UserStore';
+import BaseService from '../../services/BaseService';
 
 const initialValues = {
   firstName: 'Leo',
@@ -25,15 +24,17 @@ const initialValues = {
   photoUrl: ''
 };
 
-// const store = new UserStore();
-// const constructAddress = () => {}
-
 export const UserProfile = observer((props: any) => {
   const [show, setShow] = useState(false);
   const [user, setUser] = useState(props.store.currentUser);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const submitProfileChanges = async (values: any) => {
+    await BaseService.fetchFunc('PUT', 'api/login', values);
+  };
+
   return (
     <>
       <Button variant='primary' onClick={handleShow}>
@@ -47,7 +48,7 @@ export const UserProfile = observer((props: any) => {
         <Modal.Body>
           <Formik
             validationSchema={userProfileSchema}
-            onSubmit={UserService.submitChanges}
+            onSubmit={submitProfileChanges}
             initialValues={initialValues}
           >
             {({ handleSubmit, handleChange, values: userInputs, errors }) => (
