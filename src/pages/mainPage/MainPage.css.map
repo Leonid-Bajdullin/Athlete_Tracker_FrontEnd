@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,yBAA0B;EACxB,OAAO,EAAE,SAAS;EAClB,gBAAgB,EAJA,OAAO;;AAOzB,mBAAoB;EAClB,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,IAAI;EACf,UAAU,EAAE,KAAK;EACjB,OAAO,EAAE,MAAM",
+"sources": ["MainPage.scss"],
+"names": [],
+"file": "MainPage.css"
+}

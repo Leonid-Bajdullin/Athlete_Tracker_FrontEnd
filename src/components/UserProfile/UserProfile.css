@@ -1,0 +1,18 @@
+.user-profile .update-user {
+  height: 100%;
+  width: 100%; }
+.user-profile .form-group {
+  background-color: white; }
+.user-profile .form-label {
+  font-weight: 600;
+  padding-left: 0.75rem;
+  padding-top: 0.75rem;
+  margin-bottom: 0rem; }
+.user-profile .invalid-feedback {
+  padding-left: 0.75rem;
+  background-color: #f0f0f0; }
+.user-profile .form-control {
+  border: none;
+  padding-top: 0rem; }
+
+/*# sourceMappingURL=UserProfile.css.map */

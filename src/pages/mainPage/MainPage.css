@@ -1,0 +1,11 @@
+.teamcards-list-container {
+  padding: 2rem 5rem;
+  background-color: #f0f0f0; }
+
+.all-teamcards-list {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 500px;
+  padding: 0.5rem; }
+
+/*# sourceMappingURL=MainPage.css.map */
