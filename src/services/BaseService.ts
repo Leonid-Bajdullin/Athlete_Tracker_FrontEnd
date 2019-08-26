@@ -1,8 +1,6 @@
 // prettier-ignore
-import {Service} from 'typedi';
 
-@Service()
-export class BaseService {
+export abstract class BaseService {
   public fetchFunc(method: string, route: string, data?: {}) {
     let obj = {
       headers: {
@@ -19,4 +17,6 @@ export class BaseService {
       res.json()
     );
   }
+
+  // public abstract getConnectionUrl(): string;
 }
