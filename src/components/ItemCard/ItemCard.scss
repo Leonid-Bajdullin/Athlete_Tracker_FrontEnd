@@ -1,0 +1,62 @@
+$teamcard-border-radius: 0.5rem;
+
+.item-card {
+  margin: 10px;
+  // border: 2px solid $base-blue-color;
+  border-radius: $teamcard-border-radius;
+  box-shadow: 0.25rem 0.25rem 0.5rem grey;
+  .item-photo {
+    height: 70%;
+  }
+  img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: $teamcard-border-radius $teamcard-border-radius 0rem 0rem;
+  }
+  .item-info {
+    height: 30%;
+    background-color: white;
+    border-radius: 0rem 0rem $teamcard-border-radius $teamcard-border-radius;
+    position: relative;
+    div {
+      padding: 0rem 1rem;
+    }
+    .title {
+      height: 50%;
+      display: flex;
+      align-items: center;
+      font-weight: 900;
+    }
+    .description {
+      height: 50%;
+      display: flex;
+      align-items: center;
+    }
+    .button-div {
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 0 0 0.25rem 0.25rem;
+      display: none;
+      opacity: 0.8;
+    }
+
+    .itemcard-button-left {
+      height: 100%;
+      width: 50%;
+      border-radius: 0 0 0 0.25rem;
+    }
+    .itemcard-button-right {
+      height: 100%;
+      width: 50%;
+      border-radius: 0 0 0.25rem 0;
+    }
+  }
+  .item-info:hover .button-div {
+    display: inline-block;
+  }
+}
