@@ -38,10 +38,14 @@ export const userProfileSchema = Yup.object().shape({
   lastName: lastName,
   email: email,
   password: password,
+  postalCode: Yup.string().matches(
+    RegExp('^[0-9]*$'),
+    'Postal Code should contain only digits'
+  ),
   house: Yup.number().positive('Enter a positive number'),
   apartment: Yup.number().positive('Enter a positive number'),
   photoUrl: Yup.string().url('Not a proper URL'),
   phone: Yup.string()
     .matches(RegExp('^[0-9]*$'), 'Phone should contain only digits')
-    .length(10, 'Number should contain 10 digits')
+    .length(10, 'Phone Number should contain 10 digits')
 });
