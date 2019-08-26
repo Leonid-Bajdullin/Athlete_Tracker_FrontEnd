@@ -5,9 +5,8 @@ import { RegistrationForm } from '../../components/RegistrationForm/Registration
 import { LoginForm } from '../../components/LoginForm/LoginForm';
 import ironman from '../../photos/ironman.jpg';
 import avengers from '../../photos/avengers.jpg';
-import { TeamCard } from '../../components/TeamCard/TeamCard';
+import { ItemCard } from '../../components/ItemCard/ItemCard';
 import './MainPage.css';
-// import { BaseService } from '../../services/BaseService';
 
 @observer
 export class MainPage extends Component<{}, { allTeamsList: any }> {
@@ -69,24 +68,24 @@ export class MainPage extends Component<{}, { allTeamsList: any }> {
   }
 
   // async componentDidMount() {
-  //   const teamsList = await BaseService.fetchFunc('GET', 'api/teams');
+  //   const teamsList = await TeamService.fetchFunc('GET', 'api/teams');
   //   this.setState({ allTeamsList: teamsList });
   // }
 
   render() {
     return (
-      <div className='mainpage-container'>
-        <div className='content-wrap'>
-          <header className='header'>
+      <div className="mainpage-container">
+        <div className="content-wrap">
+          <header className="header">
             <input />
             <div>ATHLETE TRACKER</div>
             <div>
               <RegistrationForm /> or <LoginForm />
             </div>
           </header>
-          <main className='teamcards-list-container'>
+          <main className="teamcards-list-container">
             <h2>All teams: {this.state.allTeamsList.length}</h2>
-            <div className='all-teamcards-list'>
+            <div className="all-teamcards-list">
               {this.state.allTeamsList.map(
                 (item: {
                   name: string;
@@ -94,18 +93,19 @@ export class MainPage extends Component<{}, { allTeamsList: any }> {
                   id: string;
                   memberCount: number;
                 }) => (
-                  <TeamCard
-                    name={item.name}
+                  <ItemCard
+                    title={item.name}
                     photoUrl={item.photoUrl}
                     id={item.id}
-                    memberCount={item.memberCount}
+                    info={item.memberCount}
+                    position={null}
                   />
                 )
               )}
             </div>
           </main>
         </div>
-        <footer className='footer'>Footer</footer>
+        <footer className="footer">Footer</footer>
       </div>
     );
   }
