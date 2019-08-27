@@ -6,9 +6,8 @@ import './App.css';
 import { RootStore } from './stores/RootStore';
 import MainPage from './pages/mainPage/MainPage';
 import { UserProfile } from './components/UserProfile/UserProfile';
-import { UserExample } from './components/UserExample';
 import { UserService } from './services/UserService';
-import { ItemCard } from './components/ItemCard/ItemCard';
+import { TeamProfile } from './pages/teamProfile/TeamProfile';
 
 const rootStore = new RootStore(Container.get(UserService));
 
@@ -18,28 +17,7 @@ const App: React.FC = () => {
       <div>
         <MainPage />
         <UserProfile />
-        <UserExample />
-        <ItemCard
-          title="mark ruffalo"
-          photoUrl=""
-          id="2"
-          info="description"
-          position="headcoach"
-        />
-        <ItemCard
-          title="mark ruffalo"
-          photoUrl=""
-          id="2"
-          info="description"
-          position="athlete"
-        />
-        <ItemCard
-          title="mark ruffalo"
-          photoUrl=""
-          id="2"
-          info="description"
-          position="coach"
-        />
+        <TeamProfile id='1' />
       </div>
     </Provider>
   );
