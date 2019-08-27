@@ -1,0 +1,41 @@
+.team-card {
+  margin: 10px;
+  border-radius: 0.5rem;
+  box-shadow: 0.25rem 0.25rem 0.5rem grey; }
+  .team-card .team-photo {
+    height: 70%; }
+  .team-card img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 0.5rem 0.5rem 0rem 0rem; }
+  .team-card .team-info {
+    height: 30%;
+    background-color: white;
+    border-radius: 0rem 0rem 0.5rem 0.5rem;
+    position: relative; }
+    .team-card .team-info div {
+      padding: 0rem 1rem; }
+    .team-card .team-info .title {
+      height: 50%;
+      display: flex;
+      align-items: center;
+      font-weight: 900; }
+    .team-card .team-info .description {
+      height: 50%;
+      display: flex;
+      align-items: center; }
+    .team-card .team-info .button-div {
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 0 0 0.25rem 0.25rem;
+      display: none;
+      opacity: 0.8; }
+  .team-card .team-info:hover .button-div {
+    display: inline-block; }
+
+/*# sourceMappingURL=TeamCard.css.map */
