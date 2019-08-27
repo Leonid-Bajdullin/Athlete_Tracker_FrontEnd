@@ -1,0 +1,22 @@
+.team-profile-header {
+  height: 3rem;
+  background-color: #4e5de5; }
+
+.team-profile-top {
+  height: 30rem;
+  margin: 1rem; }
+  .team-profile-top .team-profile-photo {
+    float: left;
+    height: 100%;
+    width: 30%; }
+  .team-profile-top img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%; }
+  .team-profile-top .team-profile-description {
+    float: right;
+    height: 100%;
+    width: 70%;
+    padding: 0 1rem; }
+
+/*# sourceMappingURL=TeamProfile.css.map */
