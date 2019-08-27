@@ -6,12 +6,12 @@ import { RegistrationForm } from '../../components/RegistrationForm/Registration
 import { LoginForm } from '../../components/LoginForm/LoginForm';
 import ironman from '../../photos/ironman.jpg';
 import avengers from '../../photos/avengers.jpg';
-import { ItemCard } from '../../components/ItemCard/ItemCard';
+import { TeamCard } from '../../components/TeamCard/TeamCard';
 import './MainPage.css';
 import { TeamService } from '../../services/TeamService';
 
 @observer
-export class MainPage extends Component<{}, { allTeamsList: any }> {
+export class MainPage extends Component<{}, { allTeamsList: Array<any> }> {
   teamService: TeamService;
 
   constructor(props: any) {
@@ -91,20 +91,20 @@ export class MainPage extends Component<{}, { allTeamsList: any }> {
           </header>
           <main className='teamcards-list-container'>
             <h2>All teams: {this.state.allTeamsList.length}</h2>
+            <div>{`allteamslist: ${this.state.allTeamsList}`}</div>
             <div className='all-teamcards-list'>
               {this.state.allTeamsList.map(
                 (item: {
                   name: string;
                   photoUrl: string;
                   id: string;
-                  memberCount: number;
+                  userTeams: Array<any>;
                 }) => (
-                  <ItemCard
-                    title={item.name}
+                  <TeamCard
+                    name={item.name}
                     photoUrl={item.photoUrl}
                     id={item.id}
-                    info={item.memberCount}
-                    position={null}
+                    // memberCount={item.userTeams.length}
                   />
                 )
               )}
