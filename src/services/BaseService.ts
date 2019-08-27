@@ -10,13 +10,11 @@ export abstract class BaseService {
       method: method
       // body: ""
     } as any;
-    if (method === 'POST') {
+    if (method === 'POST' || 'PUT') {
       obj.body = JSON.stringify(data);
     }
     return fetch(`http://localhost:4000/${route}`, obj).then((res) =>
       res.json()
     );
   }
-
-  // public abstract getConnectionUrl(): string;
 }
