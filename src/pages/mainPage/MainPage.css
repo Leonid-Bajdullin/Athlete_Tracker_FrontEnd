@@ -3,34 +3,45 @@
   min-height: 100vh; }
   .mainpage-container .content-wrap {
     padding-bottom: 2.5rem; }
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-  align-items: center;
-  height: 4rem;
-  background-color: #4e5de5; }
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  background-color: #4e5de5; }
-
-.teamcards-list-container {
-  padding: 2rem 5rem;
-  background-color: #f0f0f0; }
-
-.all-teamcards-list {
-  display: flex;
-  flex-wrap: wrap;
-  min-height: 500px;
-  padding: 0.5rem; }
+  .mainpage-container .header {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    padding: 0 4rem;
+    height: 4rem;
+    background-color: #4e5de5; }
+    .mainpage-container .header .app-title {
+      font-size: 2rem;
+      font-weight: 700;
+      font-family: 'Lucida Sans', sans-serif; }
+    .mainpage-container .header .profile-tab {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      .mainpage-container .header .profile-tab .greeting-tab {
+        font-size: 1.25rem;
+        font-weight: 600;
+        padding: 0.375rem 0.75rem; }
+  .mainpage-container .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background-color: #4e5de5; }
+  .mainpage-container .teamcards-list-container {
+    padding: 2rem 4rem;
+    background-color: #f0f0f0; }
+    .mainpage-container .teamcards-list-container h2 {
+      font-weight: 700; }
+  .mainpage-container .all-teamcards-list {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 30rem;
+    padding: 0.5rem; }
 
 /*# sourceMappingURL=MainPage.css.map */

@@ -2,7 +2,8 @@
   height: 100%;
   width: 100%; }
 .user-profile .form-group {
-  background-color: white; }
+  background-color: white;
+  border-radius: 0.25rem; }
 .user-profile .form-label {
   font-weight: 600;
   padding-left: 0.75rem;
@@ -14,5 +15,11 @@
 .user-profile .form-control {
   border: none;
   padding-top: 0rem; }
+.user-profile .image-container {
+  height: 50%; }
+  .user-profile .image-container .profile-img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%; }
 
 /*# sourceMappingURL=UserProfile.css.map */
