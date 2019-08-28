@@ -6,12 +6,24 @@ export class RootStore {
   constructor(private userService: UserService) {}
 
   @observable currentUser: any = {
-    firstName: 'Leo',
-    lastName: 'Peo',
-    email: 'lbajdull@gmail.com',
-    password: 'free2play',
-    nickname: 'Adanax'
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    nickname: '',
+    phone: '',
+    photoUrl: 'https://live.staticflickr.com/6067/6076982585_4a72cb6871_b.jpg',
+    data: {
+      address: {
+        city: 'Kharkiv',
+        postalCode: '',
+        street: '',
+        house: '',
+        apartment: ''
+      }
+    }
   };
+  @observable isLoggedIn: boolean = false;
 
   @observable token: string = '';
 
@@ -21,11 +33,11 @@ export class RootStore {
     const result = await this.userService.submitLogin(values);
     this.currentUser = result.user;
     this.token = result.token;
+    this.isLoggedIn = true;
   };
 
-  @action getAllTeams = async () => {
-    const users = await this.userService.fetchFunc('GET', 'api/teams');
-    this.allUsers = users;
-    return users;
+  @action saveUserProfile = async (id: string, values: any) => {
+    const newUserData = await this.userService.saveProfileChanges(id, values);
+    this.currentUser = newUserData;
   };
 }
