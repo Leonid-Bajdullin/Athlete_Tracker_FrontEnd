@@ -37,7 +37,7 @@ export const userProfileSchema = Yup.object().shape({
   firstName: firstName,
   lastName: lastName,
   email: email,
-  password: password,
+  password: Yup.string().min(6, 'Password must be at least 6 symbols long'),
   postalCode: Yup.string().matches(
     RegExp('^[0-9]*$'),
     'Postal Code should contain only digits'
@@ -48,4 +48,5 @@ export const userProfileSchema = Yup.object().shape({
   phone: Yup.string()
     .matches(RegExp('^[0-9]*$'), 'Phone should contain only digits')
     .length(10, 'Phone Number should contain 10 digits')
+    .nullable()
 });
