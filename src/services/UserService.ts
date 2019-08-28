@@ -13,7 +13,7 @@ export class UserService extends BaseService {
     return await this.fetchFunc('POST', 'api/login', values);
   };
 
-  public saveProfileChanges = async (values: any) => {
-    await this.fetchFunc('POST', 'api/users', values);
+  public saveProfileChanges = async (id: string, values: any) => {
+    await this.fetchFunc('PUT', `api/users/${id}`, values);
   };
 }
