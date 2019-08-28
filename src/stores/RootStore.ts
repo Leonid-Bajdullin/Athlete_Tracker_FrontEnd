@@ -24,9 +24,7 @@ export class RootStore {
     }
   };
   @observable isLoggedIn: boolean = false;
-
   @observable token: string = '';
-
   @observable allUsers: any = [];
 
   @action loginUser = async (values: any) => {
