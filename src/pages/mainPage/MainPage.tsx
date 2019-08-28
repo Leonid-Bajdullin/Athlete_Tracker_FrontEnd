@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 import { Container } from 'typedi';
 
 import { RegistrationForm } from '../../components/RegistrationForm/RegistrationForm';
 import { LoginForm } from '../../components/LoginForm/LoginForm';
-import ironman from '../../photos/ironman.jpg';
-import avengers from '../../photos/avengers.jpg';
 import { TeamCard } from '../../components/TeamCard/TeamCard';
-import './MainPage.css';
 import { TeamService } from '../../services/TeamService';
+import './MainPage.css';
+import avengers from '../../photos/avengers.jpg';
+import { UserProfile } from '../../components/UserProfile/UserProfile';
 
+@inject('store')
 @observer
-export class MainPage extends Component<{}, { allTeamsList: Array<any> }> {
+export class MainPage extends Component<
+  { store?: any },
+  { allTeamsList: Array<any> }
+> {
   teamService: TeamService;
 
   constructor(props: any) {
@@ -23,50 +27,8 @@ export class MainPage extends Component<{}, { allTeamsList: Array<any> }> {
       allTeamsList: [
         {
           name: 'avengers',
-          photoUrl: ironman,
+          photoUrl: avengers,
           id: '1',
-          memberCount: 11
-        },
-        {
-          name: 'avengers',
-          photoUrl: ironman,
-          id: '2',
-          memberCount: 11
-        },
-        {
-          name: 'avengers',
-          photoUrl: avengers,
-          id: '3',
-          memberCount: 11
-        },
-        {
-          name: 'avengers',
-          photoUrl: ironman,
-          id: '4',
-          memberCount: 11
-        },
-        {
-          name: 'avengers',
-          photoUrl: avengers,
-          id: '3',
-          memberCount: 11
-        },
-        {
-          name: 'avengers',
-          photoUrl: avengers,
-          id: '3',
-          memberCount: 11
-        },
-        {
-          name: 'avengers',
-          photoUrl: avengers,
-          id: '3',
-          memberCount: 11
-        },
-        {
-          name: 'avengers',
-          photoUrl: avengers,
-          id: '3',
           memberCount: 11
         }
       ]
@@ -79,15 +41,33 @@ export class MainPage extends Component<{}, { allTeamsList: Array<any> }> {
   }
 
   render() {
+    let authorisationSection;
+    if (this.props.store.isLoggedIn) {
+      authorisationSection = (
+        <div className='profile-tab'>
+          <div className='greeting-tab'>
+            Hello, {this.props.store.currentUser.firstName}
+          </div>
+          <UserProfile />
+        </div>
+      );
+    } else {
+      authorisationSection = (
+        <div>
+          <RegistrationForm /> or <LoginForm />
+        </div>
+      );
+    }
+
     return (
       <div className='mainpage-container'>
         <div className='content-wrap'>
           <header className='header'>
-            <input />
-            <div>ATHLETE TRACKER</div>
-            <div>
-              <RegistrationForm /> or <LoginForm />
-            </div>
+            <nav className='search-input'>
+              <input />
+            </nav>
+            <div className='app-title'>ATHLETE TRACKER</div>
+            {authorisationSection}
           </header>
           <main className='teamcards-list-container'>
             <h2>All teams: {this.state.allTeamsList.length}</h2>
