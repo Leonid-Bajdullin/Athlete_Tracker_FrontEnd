@@ -5,11 +5,10 @@ import { UserService } from '../services/UserService';
 export class RootStore {
   constructor(private userService: UserService) {}
 
-  @observable currentUser: any = {
+  defaultUser = {
     firstName: '',
     lastName: '',
     email: '',
-    password: '',
     nickname: '',
     phone: '',
     photoUrl: 'https://live.staticflickr.com/6067/6076982585_4a72cb6871_b.jpg',
@@ -23,15 +22,29 @@ export class RootStore {
       }
     }
   };
+  @observable currentUser: any = {};
+  @observable userTeams: Array<any> = [];
   @observable isLoggedIn: boolean = false;
   @observable token: string = '';
-  @observable allUsers: any = [];
+  @observable allUsers: Array<any> = [];
 
   @action loginUser = async (values: any) => {
     const result = await this.userService.submitLogin(values);
+    this.userTeams = await this.userService.getUserTeamsId(result.user.id);
     this.currentUser = result.user;
     this.token = result.token;
+    // localStorage.setItem('token', result.token);
     this.isLoggedIn = true;
+  };
+
+  @action getUserTeams = async (id: string) => {
+    this.userTeams = await this.userService.getUserTeamsId(id);
+  };
+
+  @action signOut = () => {
+    this.currentUser = this.defaultUser;
+    this.userTeams = [];
+    this.isLoggedIn = false;
   };
 
   @action saveUserProfile = async (id: string, values: any) => {
