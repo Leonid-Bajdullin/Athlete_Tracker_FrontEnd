@@ -5,19 +5,23 @@
     padding-bottom: 2.5rem; }
   .mainpage-container .header {
     display: flex;
-    justify-content: space-between;
     align-content: center;
     align-items: center;
     padding: 0 4rem;
     height: 4rem;
     background-color: #4e5de5; }
+    .mainpage-container .header .search-input {
+      width: 30%; }
     .mainpage-container .header .app-title {
+      width: 40%;
+      text-align: center;
       font-size: 2rem;
       font-weight: 700;
       font-family: 'Lucida Sans', sans-serif; }
     .mainpage-container .header .profile-tab {
+      width: 30%;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center; }
       .mainpage-container .header .profile-tab .greeting-tab {
         font-size: 1.25rem;

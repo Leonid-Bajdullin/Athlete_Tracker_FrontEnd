@@ -11,21 +11,25 @@ $base-blue-color: #4e5de5;
 
   .header {
     display: flex;
-    justify-content: space-between;
     align-content: center;
     align-items: center;
     padding: 0 4rem;
     height: 4rem;
     background-color: $base-blue-color;
-
+    .search-input {
+      width: 30%;
+    }
     .app-title {
+      width: 40%;
+      text-align: center;
       font-size: 2rem;
       font-weight: 700;
       font-family: 'Lucida Sans', sans-serif;
     }
     .profile-tab {
+      width: 30%;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       .greeting-tab {
         font-size: 1.25rem;
