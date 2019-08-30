@@ -13,7 +13,7 @@ export class UserService extends BaseService {
     return await this.fetchFunc('POST', 'api/login', values);
   };
 
-  public getUserTeamsId = async (id: string) => {
+  public getUserTeams = async (id: string) => {
     return await this.fetchFunc('GET', `api/users/teams/${id}`);
   };
 
