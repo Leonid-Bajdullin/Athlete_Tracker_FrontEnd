@@ -31,10 +31,10 @@ export function UserCard(props: {
     <section style={{ width: '15rem', height: '20rem' }} className='user-card'>
       <div className='user-photo'>
         <img alt='User Photo' src={props.photoUrl} />
+        <div className='position'>{props.position}</div>
       </div>
       <div className='user-info'>
         <div className='title'>{props.fullName}</div>
-        {/* <div>{props.id}</div> */}
         <div className='description'>{props.email}</div>
         {buttonDiv}
       </div>
