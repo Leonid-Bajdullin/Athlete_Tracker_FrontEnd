@@ -28,17 +28,17 @@ export class RootStore {
   @observable token: string = '';
   @observable allUsers: Array<any> = [];
 
+  // user methods
   @action loginUser = async (values: any) => {
     const result = await this.userService.submitLogin(values);
-    this.userTeams = await this.userService.getUserTeamsId(result.user.id);
+    this.userTeams = await this.userService.getUserTeams(result.user.id);
     this.currentUser = result.user;
     this.token = result.token;
-    // localStorage.setItem('token', result.token);
     this.isLoggedIn = true;
   };
 
   @action getUserTeams = async (id: string) => {
-    this.userTeams = await this.userService.getUserTeamsId(id);
+    this.userTeams = await this.userService.getUserTeams(id);
   };
 
   @action signOut = () => {
@@ -50,5 +50,10 @@ export class RootStore {
   @action saveUserProfile = async (id: string, values: any) => {
     const newUserData = await this.userService.saveProfileChanges(id, values);
     this.currentUser = newUserData;
+  };
+
+  // userTeam methods
+  @action joinTeamRequest = async (values: any) => {
+    await this.userService.fetchFunc('POST', 'api/userteams', values);
   };
 }
