@@ -4,6 +4,7 @@ import { TeamService } from '../../services/TeamService';
 import Container from 'typedi';
 
 import './TeamProfile.css';
+import { Link } from 'react-router-dom';
 
 export class TeamProfile extends Component<
   { match: any },
@@ -40,20 +41,24 @@ export class TeamProfile extends Component<
 
   render() {
     return (
-      <div className="teamprofile-container">
-        <header className="team-profile-header">Team Profile</header>
-        <div className="team-profile-top">
-          <div className="team-profile-photo">
+      <div className='teamprofile-container'>
+        <header className='team-profile-header'>
+          <div className='app-title'>
+            <Link to='/'>ATHLETE TRACKER</Link>
+          </div>
+        </header>
+        <div className='team-profile-top'>
+          <div className='team-profile-photo'>
             <img src={this.state.teamInfo.photoUrl}></img>
           </div>
-          <section className="team-profile-description">
+          <section className='team-profile-description'>
             <h2>Description:</h2>
             <div>{this.state.teamInfo.description}</div>
           </section>
         </div>
-        <main className="members-list-container">
+        <main className='members-list-container'>
           <h2>Team members: {this.state.membersList.length}</h2>
-          <div className="all-members-list">
+          <div className='all-members-list'>
             {this.state.membersList.map((item: any) => (
               <UserCard
                 fullName={`${item.user.firstName} ${item.user.lastName}`}
@@ -65,7 +70,7 @@ export class TeamProfile extends Component<
             ))}
           </div>
         </main>
-        <footer className="footer">Footer</footer>
+        <footer className='footer'>Copyright© Leo Peo, 2019</footer>
       </div>
     );
   }
