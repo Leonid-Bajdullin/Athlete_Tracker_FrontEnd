@@ -44,7 +44,9 @@ export const userProfileSchema = Yup.object().shape({
   ),
   house: Yup.number().positive('Enter a positive number'),
   apartment: Yup.number().positive('Enter a positive number'),
-  photoUrl: Yup.string().url('Not a proper URL'),
+  photoUrl: Yup.string()
+    .url('Not a proper URL')
+    .nullable(),
   phone: Yup.string()
     .matches(RegExp('^[0-9]*$'), 'Phone should contain only digits')
     .length(10, 'Phone Number should contain 10 digits')
