@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import { Container } from 'typedi';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import _ from 'lodash';
 
 import { RegistrationForm } from '../../components/RegistrationForm/RegistrationForm';
 import { LoginForm } from '../../components/LoginForm/LoginForm';
 import { TeamCard } from '../../components/TeamCard/TeamCard';
 import { TeamService } from '../../services/TeamService';
-import './MainPage.css';
-import avengers from '../../photos/avengers.jpg';
 import { UserProfile } from '../../components/UserProfile/UserProfile';
-import { Button } from 'react-bootstrap';
+import './MainPage.css';
 
 @inject('store')
 @observer
@@ -25,26 +26,18 @@ export class MainPage extends Component<
     this.teamService = Container.get(TeamService);
 
     this.state = {
-      allTeamsList: [
-        // {
-        //   name: 'avengers',
-        //   photoUrl: avengers,
-        //   id: '1',
-        //   memberCount: 11
-        // }
-      ]
+      allTeamsList: []
     };
   }
 
   async componentDidMount() {
     const teamsList = await this.teamService.fetchFunc('GET', 'api/teams');
     this.setState({ allTeamsList: teamsList });
-    // if (localStorage.getItem('token')) {
-    //   this.props.store.isLoggedIn = true;
-    // }
   }
 
   render() {
+    const currentUser = this.props.store.currentUser;
+
     let authorisationSection;
     if (this.props.store.isLoggedIn) {
       authorisationSection = (
@@ -52,16 +45,19 @@ export class MainPage extends Component<
           <Button variant='danger' onClick={this.props.store.signOut}>
             Sign out
           </Button>
-          <div className='greeting-tab'>
-            Hello, {this.props.store.currentUser.firstName}
-          </div>
+          <div className='greeting-tab'>Hello, {currentUser.firstName}</div>
           <UserProfile />
         </div>
       );
     } else {
       authorisationSection = (
         <div className='profile-tab'>
-          <RegistrationForm /> or <LoginForm />
+          <RegistrationForm />
+          <div className='greeting-tab'>
+            If you already
+            <br /> registered >>>
+          </div>
+          <LoginForm />
         </div>
       );
     }
@@ -73,7 +69,9 @@ export class MainPage extends Component<
             <nav className='search-input'>
               <input />
             </nav>
-            <div className='app-title'>ATHLETE TRACKER</div>
+            <div className='app-title'>
+              <Link to='/'>ATHLETE TRACKER</Link>
+            </div>
             {authorisationSection}
           </header>
           <main className='teamcards-list-container'>
@@ -86,23 +84,25 @@ export class MainPage extends Component<
                   id: string;
                   userTeams: Array<any>;
                 }) => {
-                  let isMember;
-                  if (this.props.store.userTeams.includes(item.id)) {
-                    isMember = true;
-                  } else {
-                    isMember = false;
-                  }
-                  // if item.id is one of values in userTeams[] in store
-                  // set prop isMember=true, else false
+                  let isMember: boolean;
+                  const teamsIds = this.props.store.userTeams.map(
+                    (item: any) => {
+                      return item.id;
+                    }
+                  );
+                  isMember = _.includes(teamsIds, item.id) ? true : false;
+
                   return (
                     <TeamCard
                       name={item.name}
                       photoUrl={item.photoUrl}
-                      id={item.id}
+                      teamId={item.id}
                       memberCount={
                         item.userTeams ? item.userTeams.length : undefined
                       }
                       isMember={isMember}
+                      userId={currentUser.id}
+                      position={}
                     />
                   );
                 }
@@ -110,7 +110,7 @@ export class MainPage extends Component<
             </div>
           </main>
         </div>
-        <footer className='footer'>Footer</footer>
+        <footer className='footer'>Copyright© Leo Peo, 2019</footer>
       </div>
     );
   }
