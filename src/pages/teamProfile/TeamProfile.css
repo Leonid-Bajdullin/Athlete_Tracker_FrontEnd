@@ -3,7 +3,22 @@
   min-height: 100vh; }
   .teamprofile-container .team-profile-header {
     height: 4rem;
-    background-color: #4e5de5; }
+    padding: 0 4rem;
+    background-color: #4e5de5;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .teamprofile-container .team-profile-header .app-title {
+      width: 40%;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      font-family: 'Indie Flower', cursive;
+      text-shadow: 1px 1px 2px black; }
+      .teamprofile-container .team-profile-header .app-title a {
+        color: black; }
+      .teamprofile-container .team-profile-header .app-title a:hover {
+        text-decoration: none; }
   .teamprofile-container .team-profile-top {
     height: 30rem;
     margin: 1rem; }
@@ -39,6 +54,7 @@
     justify-content: center;
     align-content: center;
     align-items: center;
-    background-color: #4e5de5; }
+    background-color: #4e5de5;
+    font-family: 'Indie Flower', cursive; }
 
 /*# sourceMappingURL=TeamProfile.css.map */

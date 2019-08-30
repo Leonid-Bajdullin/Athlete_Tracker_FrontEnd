@@ -18,13 +18,21 @@ $base-blue-color: #4e5de5;
     background-color: $base-blue-color;
     .search-input {
       width: 30%;
+      border-radius: 0.25rem;
     }
     .app-title {
       width: 40%;
       text-align: center;
       font-size: 2rem;
       font-weight: 700;
-      font-family: 'Lucida Sans', sans-serif;
+      font-family: 'Indie Flower', cursive;
+      text-shadow: 1px 1px 2px black;
+      a {
+        color: black;
+      }
+      a:hover {
+        text-decoration: none;
+      }
     }
     .profile-tab {
       width: 30%;
@@ -35,6 +43,7 @@ $base-blue-color: #4e5de5;
         font-size: 1.25rem;
         font-weight: 600;
         padding: 0.375rem 0.75rem;
+        // font-family: 'Indie Flower', cursive;
       }
     }
   }
@@ -48,6 +57,7 @@ $base-blue-color: #4e5de5;
     align-content: center;
     align-items: center;
     background-color: $base-blue-color;
+    font-family: 'Indie Flower', cursive;
   }
   .teamcards-list-container {
     padding: 2rem 4rem;

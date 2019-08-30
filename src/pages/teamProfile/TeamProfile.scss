@@ -6,7 +6,25 @@ $base-blue-color: #4e5de5;
   min-height: 100vh;
   .team-profile-header {
     height: 4rem;
+    padding: 0 4rem;
     background-color: $base-blue-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .app-title {
+      width: 40%;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      font-family: 'Indie Flower', cursive;
+      text-shadow: 1px 1px 2px black;
+      a {
+        color: black;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+    }
   }
 
   .team-profile-top {
@@ -52,5 +70,6 @@ $base-blue-color: #4e5de5;
     align-content: center;
     align-items: center;
     background-color: $base-blue-color;
+    font-family: 'Indie Flower', cursive;
   }
 }

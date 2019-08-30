@@ -3,7 +3,13 @@
   border-radius: 0.5rem;
   box-shadow: 0.25rem 0.25rem 0.5rem grey; }
   .user-card .user-photo {
-    height: 70%; }
+    height: 70%;
+    position: relative; }
+    .user-card .user-photo .position {
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
+      font-weight: 700; }
   .user-card img {
     object-fit: cover;
     height: 100%;
