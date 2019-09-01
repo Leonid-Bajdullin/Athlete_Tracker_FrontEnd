@@ -14,7 +14,14 @@ export abstract class BaseService {
       obj.body = JSON.stringify(data);
     }
     return fetch(`http://localhost:4000/${route}`, obj).then((res) =>
-      res.json()
+      {
+        if (res.status !== 200) {
+          return res.json().then(data => {
+            throw new Error(data.message);
+          });          
+        }
+        return res.json();
+      }
     );
   }
 }

@@ -29,12 +29,20 @@ export class RootStore {
   @observable allUsers: Array<any> = [];
 
   // user methods
-  @action loginUser = async (values: any) => {
-    const result = await this.userService.submitLogin(values);
-    this.userTeams = await this.userService.getUserTeams(result.user.id);
-    this.currentUser = result.user;
-    this.token = result.token;
-    this.isLoggedIn = true;
+  @action loginUser = (values: any) => {
+    this.userService
+      .submitLogin(values)
+      .then((result) => {
+        this.userService
+          .getUserTeams(result.user.id)
+          .then((userTeams) => (this.userTeams = userTeams));
+        this.currentUser = result.user;
+        this.token = result.token;
+        this.isLoggedIn = true;
+      })
+      .catch((result) => {
+        alert(result.message);
+      });
   };
 
   @action getUserTeams = async (id: string) => {
@@ -54,6 +62,8 @@ export class RootStore {
 
   // userTeam methods
   @action joinTeamRequest = async (values: any) => {
-    await this.userService.fetchFunc('POST', 'api/userteams', values);
+    this.userService
+      .fetchFunc('POST', 'api/userteams', values)
+      .then(() => this.getUserTeams(this.currentUser.id));
   };
 }

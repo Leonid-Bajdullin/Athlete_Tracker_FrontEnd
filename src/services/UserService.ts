@@ -1,7 +1,6 @@
 import { Service } from 'typedi';
 
 import { BaseService } from './BaseService';
-import { async } from 'q';
 
 @Service()
 export class UserService extends BaseService {
@@ -13,8 +12,8 @@ export class UserService extends BaseService {
     return await this.fetchFunc('POST', 'api/login', values);
   };
 
-  public getUserTeams = async (id: string) => {
-    return await this.fetchFunc('GET', `api/users/teams/${id}`);
+  public getUserTeams = (id: string) => {
+    return this.fetchFunc('GET', `api/users/teams/${id}`);
   };
 
   public saveProfileChanges = async (id: string, values: any) => {
