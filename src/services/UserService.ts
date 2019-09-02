@@ -4,8 +4,12 @@ import { BaseService } from './BaseService';
 
 @Service()
 export class UserService extends BaseService {
-  public submitRegistration = async (values: any) => {
-    await this.fetchFunc('POST', 'api/users', values);
+  public submitRegistration = async (
+    values: any
+  ): Promise<{ user: any; token: string }> => {
+    return this.fetchFunc('POST', 'api/users', values).catch((result) =>
+      alert(result.message)
+    );
   };
 
   public submitLogin = async (values: any): Promise<any> => {
