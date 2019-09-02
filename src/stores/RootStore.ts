@@ -23,7 +23,7 @@ export class RootStore {
     }
   };
   @observable currentUser: any = {};
-  @observable userTeams: Array<any> = [];
+  @observable userTeams: Array<{ id: string; position: string }> = [];
   @observable isLoggedIn: boolean = false;
   @observable token: string = '';
   @observable allUsers: Array<any> = [];

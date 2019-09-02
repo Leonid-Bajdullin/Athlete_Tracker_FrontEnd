@@ -44,7 +44,6 @@ export class RegistrationForm extends Component<{}, { show: boolean }> {
   submitRegistration = (values: any) => {
     this.userService.submitRegistration(values);
     this.handleClose();
-    alert('User registered successfully!');
   };
 
   render() {
