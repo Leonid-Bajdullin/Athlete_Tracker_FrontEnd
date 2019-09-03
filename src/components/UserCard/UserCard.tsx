@@ -4,7 +4,6 @@ import { Button } from 'react-bootstrap';
 import './UserCard.css';
 import { UserService } from '../../services/UserService';
 import Container from 'typedi';
-import { async } from 'q';
 
 export class UserCard extends Component<
   {
