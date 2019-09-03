@@ -11,6 +11,7 @@ import { TeamCard } from '../../components/TeamCard/TeamCard';
 import { TeamService } from '../../services/TeamService';
 import { UserProfile } from '../../components/UserProfile/UserProfile';
 import './MainPage.css';
+import { TeamCreateForm } from '../../components/TeamCreateForm/TeamCreateForm';
 
 @inject('store')
 @observer
@@ -95,7 +96,11 @@ export class MainPage extends Component<
                       photoUrl={item.photoUrl}
                       teamId={item.id}
                       memberCount={
-                        item.userTeams ? item.userTeams.length : undefined
+                        item.userTeams
+                          ? item.userTeams.filter(
+                              (el) => el.position !== 'pending'
+                            ).length
+                          : undefined
                       }
                       position={userTeam ? userTeam.position : undefined}
                       userId={currentUser.id}
@@ -105,6 +110,7 @@ export class MainPage extends Component<
               )}
             </div>
           </main>
+          <TeamCreateForm></TeamCreateForm>
         </div>
         <footer className='footer'>Copyright© Leo Peo, 2019</footer>
       </div>
