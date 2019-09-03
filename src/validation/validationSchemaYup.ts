@@ -4,18 +4,18 @@ import * as Yup from 'yup';
 const email = Yup.string()
   .required('Required field')
   .email('Not a proper email');
-
 const password = Yup.string()
   .required('Required field')
   .min(6, 'Password must be at least 6 symbols long');
-
 const firstName = Yup.string()
   .required('Required field')
   .max(20, 'No more than 20 letters');
-
 const lastName = Yup.string()
   .required('Required field')
   .max(20, 'No more than 20 letters');
+const photoUrl = Yup.string()
+  .url('Not a proper URL')
+  .nullable();
 
 // Schemas
 export const registrationSchema = Yup.object().shape({
@@ -44,11 +44,15 @@ export const userProfileSchema = Yup.object().shape({
   ),
   house: Yup.number().positive('Enter a positive number'),
   apartment: Yup.number().positive('Enter a positive number'),
-  photoUrl: Yup.string()
-    .url('Not a proper URL')
-    .nullable(),
+  photoUrl: photoUrl,
   phone: Yup.string()
     .matches(RegExp('^[0-9]*$'), 'Phone should contain only digits')
     .length(10, 'Phone Number should contain 10 digits')
     .nullable()
+});
+
+export const teamCreateSchema = Yup.object().shape({
+  name: Yup.string().required('Required'),
+  photoUrl: photoUrl,
+  description: Yup.string().max(250, 'Should be no more than 250 letters long')
 });
