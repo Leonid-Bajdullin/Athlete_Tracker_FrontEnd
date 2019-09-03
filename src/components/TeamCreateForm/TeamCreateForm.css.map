@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,mBAAoB;EAClB,MAAM,EAAE,KAAK;EACb,aAAa,EAJK,MAAM;EAKxB,6BAAU;IACR,UAAU,EAAE,KAAK;IACjB,MAAM,EAAE,IAAI;IACZ,KAAK,EAAE,IAAI;IACX,aAAa,EATG,MAAM",
+"sources": ["TeamCreateForm.scss"],
+"names": [],
+"file": "TeamCreateForm.css"
+}
