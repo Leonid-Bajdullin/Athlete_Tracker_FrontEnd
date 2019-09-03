@@ -26,40 +26,41 @@ export const TeamCard = inject('store')(
       };
       let teamMemberStates = ['athlete', 'coach', 'headcoach'];
 
-      let buttonView = null;
-      if (_.includes(teamMemberStates, props.position)) {
-        buttonView = (
-          <Link to={`/teamprofile/${props.teamId}`}>
-            <Button variant="primary" className="button-div">
-              View
+      var buttonView: any = _.isEmpty(props.store.currentUser)
+        ? null
+        : _.includes(teamMemberStates, props.position)
+        ? (buttonView = (
+            <Link to={`/teamprofile/${props.teamId}`}>
+              <Button variant='primary' className='button-div'>
+                View
+              </Button>
+            </Link>
+          ))
+        : props.position === 'pending'
+        ? (buttonView = (
+            <Button variant='warning' className='button-div' disabled>
+              Waiting approval
             </Button>
-          </Link>
-        );
-      } else if (props.position === 'pending') {
-        buttonView = (
-          <Button variant="warning" className="button-div" disabled>
-            Waiting approval
-          </Button>
-        );
-      } else if (!props.position) {
-        buttonView = (
-          <Button variant="success" className="button-div" onClick={joinTeam}>
-            Join
-          </Button>
-        );
-      }
+          ))
+        : !props.position
+        ? (buttonView = (
+            <Button variant='success' className='button-div' onClick={joinTeam}>
+              Join
+            </Button>
+          ))
+        : null;
 
       return (
         <section
           style={{ width: '15rem', height: '20rem' }}
-          className="team-card"
+          className='team-card'
         >
-          <div className="team-photo">
-            <img alt="Team Photo" src={props.photoUrl} />
+          <div className='team-photo'>
+            <img alt='Team Photo' src={props.photoUrl} />
           </div>
-          <div className="team-info">
-            <div className="title">{props.name}</div>
-            <div className="description">
+          <div className='team-info'>
+            <div className='title'>{props.name}</div>
+            <div className='description'>
               Members count: {props.memberCount}
             </div>
             {buttonView}
