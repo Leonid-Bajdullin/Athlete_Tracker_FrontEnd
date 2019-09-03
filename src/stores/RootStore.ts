@@ -29,7 +29,7 @@ export class RootStore {
   @observable allUsers: Array<any> = [];
 
   // user methods
-  @action loginUser = (values: any) => {
+  @action loginUser = async (values: any) => {
     this.userService
       .submitLogin(values)
       .then((result) => {
@@ -50,7 +50,7 @@ export class RootStore {
   };
 
   @action signOut = () => {
-    this.currentUser = this.defaultUser;
+    this.currentUser = {};
     this.userTeams = [];
     this.isLoggedIn = false;
   };
