@@ -1,5 +1,26 @@
 $img-border-radius: 0.5rem;
 
+.button-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .button-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .add-team-button {
+    height: 50%;
+    width: 50%;
+  }
+}
+
 .form-img-container {
   height: 16rem;
   border-radius: $img-border-radius;
@@ -9,4 +30,21 @@ $img-border-radius: 0.5rem;
     width: 100%;
     border-radius: $img-border-radius;
   }
+}
+
+#cross {
+  background: red;
+  height: 100px;
+  position: relative;
+  left: 50px;
+  width: 20px;
+}
+#cross:after {
+  background: red;
+  content: '';
+  height: 20px;
+  left: -40px;
+  position: absolute;
+  top: 40px;
+  width: 100px;
 }

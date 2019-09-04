@@ -1,7 +1,8 @@
 .team-card {
   margin: 10px;
   border-radius: 0.5rem;
-  box-shadow: 0.25rem 0.25rem 0.5rem grey; }
+  box-shadow: 0.25rem 0.25rem 0.5rem grey;
+  transition: all 0.3s ease-out; }
   .team-card .team-photo {
     height: 70%; }
   .team-card img {
@@ -37,5 +38,9 @@
       opacity: 0.8; }
   .team-card .team-info:hover .button-div {
     display: inline-block; }
+
+.team-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0rem 0rem 1rem 0.5rem blue; }
 
 /*# sourceMappingURL=TeamCard.css.map */
