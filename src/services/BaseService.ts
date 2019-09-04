@@ -1,14 +1,19 @@
 // prettier-ignore
-
 export abstract class BaseService {
+  public addAuthHeaderMiddleware = () => {
+    return localStorage.getItem("token");
+  }
+
   public fetchFunc(method: string, route: string, data?: {}) {
+    // debugger;
+    const authorization = this.addAuthHeaderMiddleware();
     let obj = {
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${authorization}`
       },
       method: method
-      // body: ""
     } as any;
     if (method === 'POST' || 'PUT') {
       obj.body = JSON.stringify(data);
