@@ -13,7 +13,7 @@ export class UserService extends BaseService {
   };
 
   public getUserTeams = (id: string) => {
-    return this.fetchFunc('GET', `api/users/teams/${id}`);
+    return this.fetchFunc('GET', `api/users/${id}/teams`);
   };
 
   public saveProfileChanges = async (id: string, values: any) => {
