@@ -31,7 +31,15 @@ export class MainPage extends Component<
     };
   }
 
+  checkStorage = () => {
+    if (localStorage.getItem('token')) {
+      this.props.store.getCurrentUser();
+    }
+  };
+
   async componentDidMount() {
+    debugger;
+    await this.checkStorage();
     const teamsList = await this.teamService.fetchFunc('GET', 'api/teams');
     this.setState({ allTeamsList: teamsList });
   }
@@ -78,6 +86,7 @@ export class MainPage extends Component<
           <main className='teamcards-list-container'>
             <h2>All teams: {this.state.allTeamsList.length}</h2>
             <div className='all-teamcards-list'>
+              <TeamCreateForm />
               {this.state.allTeamsList.map(
                 (item: {
                   name: string;
@@ -110,7 +119,6 @@ export class MainPage extends Component<
               )}
             </div>
           </main>
-          <TeamCreateForm></TeamCreateForm>
         </div>
         <footer className='footer'>Copyright© Leo Peo, 2019</footer>
       </div>

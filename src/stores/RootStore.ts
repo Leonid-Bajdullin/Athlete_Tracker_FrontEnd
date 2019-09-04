@@ -29,16 +29,39 @@ export class RootStore {
   @observable allUsers: Array<any> = [];
 
   // user methods
-  @action loginUser = async (values: any) => {
+  @action getCurrentUser = async () => {
+    debugger;
+    this.userService
+      .fetchFunc('GET', 'api/users/currentuser')
+      .then((result) => {
+        if (!result) {
+          this.currentUser = {};
+          this.isLoggedIn = false;
+          this.userTeams = [];
+        } else {
+          this.userService
+            .getUserTeams(result.id)
+            .then((userTeams) => (this.userTeams = userTeams));
+          this.currentUser = result;
+          this.isLoggedIn = true;
+        }
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+  };
+
+  @action loginUser = (values: any) => {
+    debugger;
     this.userService
       .submitLogin(values)
       .then((result) => {
-        this.userService
-          .getUserTeams(result.user.id)
-          .then((userTeams) => (this.userTeams = userTeams));
+        this.userService.getUserTeams(result.user.id).then((userTeams) => {
+          this.userTeams = userTeams[0] === null ? [] : userTeams;
+        });
         this.currentUser = result.user;
-        this.token = result.token;
         this.isLoggedIn = true;
+        localStorage.setItem('token', result.token);
       })
       .catch((result) => {
         alert(result.message);
@@ -53,6 +76,7 @@ export class RootStore {
     this.currentUser = {};
     this.userTeams = [];
     this.isLoggedIn = false;
+    localStorage.removeItem('token');
   };
 
   @action saveUserProfile = async (id: string, values: any) => {

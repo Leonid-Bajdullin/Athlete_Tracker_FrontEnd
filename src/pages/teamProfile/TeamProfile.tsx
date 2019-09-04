@@ -36,6 +36,8 @@ export class TeamProfile extends Component<
   teamID = this.props.match.params.teamId;
 
   async componentDidMount() {
+    this.props.store.getCurrentUser();
+
     const team = await this.teamService.fetchFunc(
       'GET',
       `api/teams/${this.teamID}`
@@ -59,13 +61,13 @@ export class TeamProfile extends Component<
   loadMembers = async () => {
     const members = await this.teamService.fetchFunc(
       'GET',
-      `api/teams/members/${this.teamID}`
+      `api/teams/${this.teamID}/members`
     );
     this.setState({ membersList: members });
 
     const pendingMembers = await this.teamService.fetchFunc(
       'GET',
-      `api/teams/pendingmembers/${this.teamID}`
+      `api/teams/${this.teamID}/pendingmembers`
     );
     this.setState({ pendingMembersList: pendingMembers });
   };
