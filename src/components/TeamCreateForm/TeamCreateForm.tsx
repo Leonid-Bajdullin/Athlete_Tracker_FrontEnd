@@ -66,9 +66,20 @@ export class TeamCreateForm extends Component<
   render() {
     return (
       <div>
-        <Button variant='success' onClick={this.handleShow}>
-          Create team
-        </Button>
+        <section
+          style={{ width: '15rem', height: '20rem' }}
+          className='team-card'
+        >
+          <div className='button-container'>
+            <div className='button-text'>Create your team</div>
+            <Button
+              variant='success'
+              // id='cross'
+              className='add-team-button'
+              onClick={this.handleShow}
+            ></Button>
+          </div>
+        </section>
 
         <Modal size='lg' show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
@@ -150,8 +161,8 @@ export class TeamCreateForm extends Component<
                       </Form.Group>
                     </Col>
                   </Form.Row>
-                  <Button variant='primary' type='submit'>
-                    Save changes
+                  <Button variant='success' type='submit'>
+                    Create team
                   </Button>
                 </Form>
               )}
