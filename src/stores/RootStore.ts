@@ -30,7 +30,6 @@ export class RootStore {
 
   // user methods
   @action getCurrentUser = async () => {
-    debugger;
     this.userService
       .fetchFunc('GET', 'api/users/currentuser')
       .then((result) => {
@@ -52,7 +51,6 @@ export class RootStore {
   };
 
   @action loginUser = (values: any) => {
-    debugger;
     this.userService
       .submitLogin(values)
       .then((result) => {
