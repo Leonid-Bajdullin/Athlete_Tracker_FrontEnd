@@ -75,7 +75,7 @@ export class TeamProfile extends Component<
   render() {
     // prettier-ignore
     let pendingMembersList =
-      (this.state.currUserPos !== 'coach' && this.state.currUserPos !== 'headcoach') ? null : this.state
+     (this.state.currUserPos !== 'coach' && this.state.currUserPos !== 'headcoach') ? null : this.state
           .pendingMembersList.length < 1 ? null : (
         <main className='members-list-container'>
           <h2>Pending members</h2>
