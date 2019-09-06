@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, OverlayTrigger, Overlay } from 'react-bootstrap';
 
 import './UserCard.css';
 import { UserService } from '../../services/UserService';
@@ -32,71 +32,94 @@ export class UserCard extends Component<
       userId: this.props.id.toString(),
       teamId: this.props.teamId
     };
-    this.userService.fetchFunc('PUT', 'api/userteams', values).then((res) => {
-      this.props.onItemChange();
-    });
+    this.userService
+      .fetchFunc('PUT', 'api/userteams', values)
+      .then(() => {
+        this.props.onItemChange();
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
   };
 
-  declineMember = async () => {
+  deleteMember = async () => {
     const values = {
       userId: this.props.id.toString(),
       teamId: this.props.teamId
     };
     this.userService
       .fetchFunc('DELETE', 'api/userteams', values)
-      .then((res) => {
-        alert(res.message);
+      .then(() => {
         this.props.onItemChange();
+      })
+      .catch((err) => {
+        alert(err.message);
       });
   };
 
   render() {
     let buttonDiv = null;
-    buttonDiv =
-      this.props.position === 'pending' ? (
-        <div className='button-div'>
+    let deleteButton = null;
+
+    if (this.props.position === 'pending') {
+      buttonDiv = (
+        <div className="button-div">
           <Button
-            variant='success'
-            className='usercard-button-left'
+            variant="success"
+            className="usercard-button-left"
             onClick={this.acceptMember}
           >
             Accept
           </Button>
           <Button
-            variant='danger'
-            className='usercard-button-right'
-            onClick={this.declineMember}
+            variant="danger"
+            className="usercard-button-right"
+            onClick={this.deleteMember}
           >
             Decline
           </Button>
         </div>
-      ) : this.props.currUserPos === 'headcoach' ? (
-        (buttonDiv = (
-          <div className='button-div'>
-            <Button variant='success' className='usercard-button-left'>
-              Upgrade
-            </Button>
-            <Button variant='danger' className='usercard-button-right'>
-              Downgrade
-            </Button>
-          </div>
-        ))
-      ) : (
-        (buttonDiv = null)
       );
+      deleteButton = null;
+    } else if (this.props.currUserPos === 'headcoach') {
+      buttonDiv = (
+        <div className="button-div">
+          <Button variant="success" className="usercard-button-left">
+            Upgrade
+          </Button>
+          <Button variant="danger" className="usercard-button-right">
+            Downgrade
+          </Button>
+        </div>
+      );
+      const renderTooltip = (props: any) => (
+        <div className="tooltip" {...props}>
+          Delete this member from team
+        </div>
+      );
+      deleteButton = (
+        <OverlayTrigger placement="top" overlay={renderTooltip}>
+          <div className="close" onClick={this.deleteMember}></div>
+        </OverlayTrigger>
+      );
+    } else {
+      buttonDiv = null;
+      deleteButton = null;
+    }
 
     return (
       <section
         style={{ width: '15rem', height: '20rem' }}
-        className='user-card'
+        className="user-card"
       >
-        <div className='user-photo'>
-          <img alt='User Photo' src={this.props.photoUrl} />
-          <div className='position'>{this.props.position}</div>
+        <div className="user-photo">
+          <img alt="User Photo" src={this.props.photoUrl} />
+          <div className="position">{this.props.position}</div>
+          {deleteButton}
         </div>
-        <div className='user-info'>
-          <div className='title'>{this.props.fullName}</div>
-          <div className='description'>{this.props.email}</div>
+        <div className="user-info">
+          <div className="title">{this.props.fullName}</div>
+          <div className="description">{this.props.email}</div>
           {buttonDiv}
         </div>
       </section>
