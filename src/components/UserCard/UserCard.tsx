@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, OverlayTrigger, Overlay } from 'react-bootstrap';
+import { Button, OverlayTrigger } from 'react-bootstrap';
 
 import './UserCard.css';
 import { UserService } from '../../services/UserService';
@@ -27,13 +27,36 @@ export class UserCard extends Component<
     this.state = {};
   }
 
+  upgradeMember = async () => {
+    const position =
+      this.props.position === 'coach'
+        ? 'headcoach'
+        : this.props.position === 'athlete'
+        ? 'coach'
+        : null;
+    if (position) {
+      const data = {
+        userId: this.props.id,
+        teamId: this.props.teamId,
+        position: position
+      };
+      await this.userService.fetchFunc(
+        'PUT',
+        'api/userteams/setposition',
+        data
+      );
+    } else {
+      return null;
+    }
+  };
+
   acceptMember = async () => {
     const values = {
       userId: this.props.id.toString(),
       teamId: this.props.teamId
     };
     this.userService
-      .fetchFunc('PUT', 'api/userteams', values)
+      .fetchFunc('PUT', 'api/userteams/accept', values)
       .then(() => {
         this.props.onItemChange();
       })
@@ -63,17 +86,17 @@ export class UserCard extends Component<
 
     if (this.props.position === 'pending') {
       buttonDiv = (
-        <div className="button-div">
+        <div className='button-div'>
           <Button
-            variant="success"
-            className="usercard-button-left"
+            variant='success'
+            className='usercard-button-left'
             onClick={this.acceptMember}
           >
             Accept
           </Button>
           <Button
-            variant="danger"
-            className="usercard-button-right"
+            variant='danger'
+            className='usercard-button-right'
             onClick={this.deleteMember}
           >
             Decline
@@ -83,23 +106,27 @@ export class UserCard extends Component<
       deleteButton = null;
     } else if (this.props.currUserPos === 'headcoach') {
       buttonDiv = (
-        <div className="button-div">
-          <Button variant="success" className="usercard-button-left">
+        <div className='button-div'>
+          <Button
+            variant='success'
+            className='usercard-button-left'
+            onClick={this.upgradeMember}
+          >
             Upgrade
           </Button>
-          <Button variant="danger" className="usercard-button-right">
+          <Button variant='danger' className='usercard-button-right'>
             Downgrade
           </Button>
         </div>
       );
       const renderTooltip = (props: any) => (
-        <div className="tooltip" {...props}>
+        <div className='tooltip' {...props}>
           Delete this member from team
         </div>
       );
       deleteButton = (
-        <OverlayTrigger placement="top" overlay={renderTooltip}>
-          <div className="close" onClick={this.deleteMember}></div>
+        <OverlayTrigger placement='top' overlay={renderTooltip}>
+          <div className='close' onClick={this.deleteMember}></div>
         </OverlayTrigger>
       );
     } else {
@@ -110,16 +137,16 @@ export class UserCard extends Component<
     return (
       <section
         style={{ width: '15rem', height: '20rem' }}
-        className="user-card"
+        className='user-card'
       >
-        <div className="user-photo">
-          <img alt="User Photo" src={this.props.photoUrl} />
-          <div className="position">{this.props.position}</div>
+        <div className='user-photo'>
+          <img alt='User Photo' src={this.props.photoUrl} />
+          <div className='position'>{this.props.position}</div>
           {deleteButton}
         </div>
-        <div className="user-info">
-          <div className="title">{this.props.fullName}</div>
-          <div className="description">{this.props.email}</div>
+        <div className='user-info'>
+          <div className='title'>{this.props.fullName}</div>
+          <div className='description'>{this.props.email}</div>
           {buttonDiv}
         </div>
       </section>
