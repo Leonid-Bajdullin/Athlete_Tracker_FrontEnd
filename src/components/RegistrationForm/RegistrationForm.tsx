@@ -10,7 +10,7 @@ import { UserService } from '../../services/UserService';
 const initialValues = {
   firstName: '',
   lastName: '',
-  email: '',
+  email: 'example@gmail.com',
   password: '',
   passwordConfirmation: ''
 };
@@ -129,7 +129,7 @@ export class RegistrationForm extends Component<
                       onChange={handleChange}
                       isValid={touched.email && !errors.email}
                       isInvalid={!!errors.email}
-                    />
+                    ></Form.Control>
                     <Form.Control.Feedback type='invalid'>
                       {errors.email}
                     </Form.Control.Feedback>
