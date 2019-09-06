@@ -1,4 +1,5 @@
 $img-border-radius: 0.5rem;
+$base-grey-color: #f0f0f0;
 
 .button-container {
   height: 100%;
@@ -7,6 +8,9 @@ $img-border-radius: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0.5rem 0.5rem 0 0;
+  border: 2px solid black;
+  border-radius: $img-border-radius;
   .button-text {
     position: absolute;
     top: 0;
@@ -32,19 +36,35 @@ $img-border-radius: 0.5rem;
   }
 }
 
-#cross {
-  background: red;
-  height: 100px;
-  position: relative;
-  left: 50px;
-  width: 20px;
+#plus {
+  font-size: 3.5rem;
+  line-height: 3rem;
+  padding: 0 0.75rem 0.75rem 0.75rem;
+  border-radius: 50%;
 }
-#cross:after {
-  background: red;
-  content: '';
-  height: 20px;
-  left: -40px;
-  position: absolute;
-  top: 40px;
-  width: 100px;
+
+#plus:hover {
+  cursor: pointer;
+}
+
+.team-card:hover {
+  #plus {
+    font-size: 3.5rem;
+    line-height: 3rem;
+    padding: 0 0.75rem 0.75rem 0.75rem;
+    border: 1px solid black;
+    animation: border-flash 1s linear infinite;
+  }
+}
+
+@keyframes border-flash {
+  0% {
+    box-shadow: 0 0 0 6px $base-grey-color, 0 0 0 8px black;
+  }
+  50% {
+    box-shadow: 0 0 0 2px $base-grey-color, 0 0 0 4px black;
+  }
+  100% {
+    box-shadow: 0 0 0 6px $base-grey-color, 0 0 0 8px black;
+  }
 }

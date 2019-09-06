@@ -8,8 +8,11 @@
     .user-card .user-photo .position {
       position: absolute;
       top: 0.5rem;
-      right: 1rem;
-      font-weight: 700; }
+      left: 1rem;
+      font-weight: 700;
+      padding: 0.25rem;
+      border: 1px solid black;
+      border-radius: 50%; }
   .user-card img {
     object-fit: cover;
     height: 100%;
@@ -51,5 +54,34 @@
       border-radius: 0 0 0.25rem 0; }
   .user-card .user-info:hover .button-div {
     display: inline-block; }
+
+.user-card:hover .close {
+  position: absolute;
+  right: 0.75rem;
+  top: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  opacity: 0.3; }
+.user-card:hover .close:hover {
+  opacity: 1;
+  cursor: pointer; }
+.user-card:hover .close:before,
+.user-card:hover .close:after {
+  position: absolute;
+  left: 0.65rem;
+  content: ' ';
+  height: 1.5rem;
+  width: 2px;
+  background-color: #333; }
+.user-card:hover .close:before {
+  transform: rotate(45deg); }
+.user-card:hover .close:after {
+  transform: rotate(-45deg); }
+
+.tooltip {
+  background-color: white;
+  border-radius: 0.25rem;
+  border: 1px solid black;
+  padding: 0 0.25rem; }
 
 /*# sourceMappingURL=UserCard.css.map */

@@ -1,4 +1,5 @@
 $usercard-border-radius: 0.5rem;
+$base-blue-color: #4e5de5;
 
 .user-card {
   margin: 10px;
@@ -10,8 +11,12 @@ $usercard-border-radius: 0.5rem;
     .position {
       position: absolute;
       top: 0.5rem;
-      right: 1rem;
+      left: 1rem;
       font-weight: 700;
+      // color: $base-blue-color;
+      padding: 0.25rem;
+      border: 1px solid black;
+      border-radius: 50%;
     }
   }
   img {
@@ -65,4 +70,41 @@ $usercard-border-radius: 0.5rem;
   .user-info:hover .button-div {
     display: inline-block;
   }
+}
+
+.user-card:hover {
+  .close {
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    opacity: 0.3;
+  }
+  .close:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  .close:before,
+  .close:after {
+    position: absolute;
+    left: 0.65rem;
+    content: ' ';
+    height: 1.5rem;
+    width: 2px;
+    background-color: #333;
+  }
+  .close:before {
+    transform: rotate(45deg);
+  }
+  .close:after {
+    transform: rotate(-45deg);
+  }
+}
+
+.tooltip {
+  background-color: white;
+  border-radius: 0.25rem;
+  border: 1px solid black;
+  padding: 0 0.25rem;
 }
