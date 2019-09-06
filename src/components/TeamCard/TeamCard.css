@@ -1,6 +1,7 @@
 .team-card {
   margin: 10px;
   border-radius: 0.5rem;
+  border: 2px solid black;
   box-shadow: 0.25rem 0.25rem 0.5rem grey;
   transition: all 0.3s ease-out; }
   .team-card .team-photo {
@@ -41,6 +42,6 @@
 
 .team-card:hover {
   transform: scale(1.1);
-  box-shadow: 0rem 0rem 1rem 0.5rem blue; }
+  box-shadow: 0rem 0rem 0.5rem 0.25rem blue; }
 
 /*# sourceMappingURL=TeamCard.css.map */
