@@ -23,19 +23,19 @@ export class Header extends Component<{ store?: any }, {}> {
     let authorisationSection;
     if (this.props.store.isLoggedIn) {
       authorisationSection = (
-        <div className="profile-tab">
-          <Button variant="danger" onClick={this.props.store.signOut}>
-            Sign out
+        <div className='profile-tab'>
+          <Button variant='danger' onClick={this.props.store.signOut}>
+            Log out
           </Button>
-          <div className="greeting-tab">Hello, {currentUser.firstName}</div>
+          <div className='greeting-tab'>Hello, {currentUser.firstName}</div>
           <UserProfile />
         </div>
       );
     } else {
       authorisationSection = (
-        <div className="profile-tab">
+        <div className='profile-tab'>
           <RegistrationForm />
-          <div className="greeting-tab">
+          <div className='greeting-tab'>
             If you already
             <br /> registered >>>
           </div>
@@ -45,16 +45,16 @@ export class Header extends Component<{ store?: any }, {}> {
     }
 
     return (
-      <header className="header">
-        <nav className="search-input">
+      <header className='header'>
+        <nav className='search-input'>
           <input
             onChange={() => {
               alert('Not yet implemented');
             }}
           />
         </nav>
-        <div className="app-title">
-          <Link to="/">ATHLETE TRACKER</Link>
+        <div className='app-title'>
+          <Link to='/'>ATHLETE TRACKER</Link>
         </div>
         {authorisationSection}
       </header>
