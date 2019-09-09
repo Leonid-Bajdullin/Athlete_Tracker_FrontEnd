@@ -12,6 +12,7 @@ import { TeamService } from '../../services/TeamService';
 import { UserProfile } from '../../components/UserProfile/UserProfile';
 import './MainPage.css';
 import { TeamCreateForm } from '../../components/TeamCreateForm/TeamCreateForm';
+import { Header } from '../../components/Header/Header';
 
 @inject('store')
 @observer
@@ -53,19 +54,19 @@ export class MainPage extends Component<
     let authorisationSection;
     if (this.props.store.isLoggedIn) {
       authorisationSection = (
-        <div className='profile-tab'>
-          <Button variant='danger' onClick={this.props.store.signOut}>
+        <div className="profile-tab">
+          <Button variant="danger" onClick={this.props.store.signOut}>
             Sign out
           </Button>
-          <div className='greeting-tab'>Hello, {currentUser.firstName}</div>
+          <div className="greeting-tab">Hello, {currentUser.firstName}</div>
           <UserProfile />
         </div>
       );
     } else {
       authorisationSection = (
-        <div className='profile-tab'>
+        <div className="profile-tab">
           <RegistrationForm />
-          <div className='greeting-tab'>
+          <div className="greeting-tab">
             If you already
             <br /> registered >>>
           </div>
@@ -75,20 +76,21 @@ export class MainPage extends Component<
     }
 
     return (
-      <div className='mainpage-container'>
-        <div className='content-wrap'>
-          <header className='header'>
-            <nav className='search-input'>
+      <div className="mainpage-container">
+        <div className="content-wrap">
+          {/* <header className="header">
+            <nav className="search-input">
               <input />
             </nav>
-            <div className='app-title'>
-              <Link to='/'>ATHLETE TRACKER</Link>
+            <div className="app-title">
+              <Link to="/">ATHLETE TRACKER</Link>
             </div>
             {authorisationSection}
-          </header>
-          <main className='teamcards-list-container'>
+          </header> */}
+          <Header></Header>
+          <main className="teamcards-list-container">
             <h2>All teams: {this.state.allTeamsList.length}</h2>
-            <div className='all-teamcards-list'>
+            <div className="all-teamcards-list">
               <TeamCreateForm
                 onItemChange={() => {
                   this.getAllTeams();
@@ -127,7 +129,7 @@ export class MainPage extends Component<
             </div>
           </main>
         </div>
-        <footer className='footer'>Copyright© Leo Peo, 2019</footer>
+        <footer className="footer">Copyright© Leo Peo, 2019</footer>
       </div>
     );
   }
