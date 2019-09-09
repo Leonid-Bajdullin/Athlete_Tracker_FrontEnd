@@ -5,28 +5,11 @@ import { UserService } from '../services/UserService';
 export class RootStore {
   constructor(private userService: UserService) {}
 
-  defaultUser = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    nickname: '',
-    phone: '',
-    photoUrl: 'https://live.staticflickr.com/6067/6076982585_4a72cb6871_b.jpg',
-    data: {
-      address: {
-        city: 'Kharkiv',
-        postalCode: '',
-        street: '',
-        house: '',
-        apartment: ''
-      }
-    }
-  };
   @observable currentUser: any = {};
   @observable userTeams: Array<{ id: string; position: string }> = [];
   @observable isLoggedIn: boolean = false;
   @observable token: string = '';
-  @observable allUsers: Array<any> = [];
+  // @observable allUsers: Array<any> = [];
 
   // user methods
   @action getCurrentUser = async () => {

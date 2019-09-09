@@ -6,7 +6,6 @@ import { inject, observer } from 'mobx-react';
 import _ from 'lodash';
 
 import './TeamProfile.css';
-import { Link } from 'react-router-dom';
 import { Header } from '../../components/Header/Header';
 
 @inject('store')
@@ -98,9 +97,9 @@ export class TeamProfile extends Component<
       );
 
     let membersList = (
-      <main className="members-list-container">
+      <main className='members-list-container'>
         <h2>Team members: {this.state.membersList.length}</h2>
-        <div className="all-members-list">
+        <div className='all-members-list'>
           {this.state.membersList.map((item: any) => (
             <UserCard
               fullName={`${item.user.firstName} ${item.user.lastName}`}
@@ -120,20 +119,20 @@ export class TeamProfile extends Component<
     );
 
     return (
-      <div className="teamprofile-container">
+      <div className='teamprofile-container'>
         <Header />
-        <div className="team-profile-top">
-          <div className="team-profile-photo">
+        <div className='team-profile-top'>
+          <div className='team-profile-photo'>
             <img src={this.state.teamInfo.photoUrl}></img>
           </div>
-          <section className="team-profile-description">
+          <section className='team-profile-description'>
             <h2>Description:</h2>
             <div>{this.state.teamInfo.description}</div>
           </section>
         </div>
         {membersList}
         {pendingMembersList}
-        <footer className="footer">Copyright© Leo Peo, 2019</footer>
+        <footer className='footer'>Copyright© Leo Peo, 2019</footer>
       </div>
     );
   }
