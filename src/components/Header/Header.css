@@ -1,3 +1,9 @@
+@media only screen and (max-width: 1024px) {
+  .search-input {
+    display: none !important; }
+
+  .app-title {
+    width: 70% !important; } }
 .header {
   display: flex;
   align-content: center;
@@ -5,7 +11,8 @@
   padding: 0 4rem;
   height: 4rem;
   background-color: #4e5de5;
-  border: 2px solid black; }
+  border-top: 2px solid black;
+  border-bottom: 2px solid black; }
   .header .search-input {
     width: 30%;
     border-radius: 0.25rem; }
