@@ -38,11 +38,11 @@ export class RootStore {
           this.isLoggedIn = false;
           this.userTeams = [];
         } else {
-          this.userService
-            .getUserTeams(result.id)
-            .then((userTeams) => (this.userTeams = userTeams));
           this.currentUser = result;
           this.isLoggedIn = true;
+          this.userService
+            .getUserTeams(this.currentUser.id)
+            .then((userTeams) => (this.userTeams = userTeams));
         }
       })
       .catch((err) => {
@@ -54,20 +54,25 @@ export class RootStore {
     this.userService
       .submitLogin(values)
       .then((result) => {
-        this.userService.getUserTeams(result.user.id).then((userTeams) => {
-          this.userTeams = userTeams[0] === null ? [] : userTeams;
-        });
         this.currentUser = result.user;
         this.isLoggedIn = true;
         localStorage.setItem('token', result.token);
+        this.getUserTeams();
       })
       .catch((result) => {
         alert(result.message);
       });
   };
 
-  @action getUserTeams = async (id: string) => {
-    this.userTeams = await this.userService.getUserTeams(id);
+  @action getUserTeams = async () => {
+    await this.userService
+      .getUserTeams(this.currentUser.id)
+      .then((userTeams) => {
+        this.userTeams = userTeams[0] === null ? [] : userTeams;
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
   };
 
   @action signOut = () => {
@@ -86,6 +91,6 @@ export class RootStore {
   @action joinTeamRequest = async (values: any) => {
     this.userService
       .fetchFunc('POST', 'api/userteams', values)
-      .then(() => this.getUserTeams(this.currentUser.id));
+      .then(() => this.getUserTeams());
   };
 }
