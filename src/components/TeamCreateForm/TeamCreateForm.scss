@@ -1,5 +1,6 @@
 $img-border-radius: 0.5rem;
 $base-grey-color: #f0f0f0;
+$base-blue-color: #4e5de5;
 
 .button-container {
   height: 100%;
@@ -24,6 +25,10 @@ $base-grey-color: #f0f0f0;
   }
 }
 
+.form-label {
+  color: $base-blue-color;
+}
+
 .form-img-container {
   height: 16rem;
   border-radius: $img-border-radius;
@@ -38,7 +43,7 @@ $base-grey-color: #f0f0f0;
 #plus {
   font-size: 3.5rem;
   line-height: 3rem;
-  padding: 0 0.75rem 0.75rem 0.75rem;
+  padding: 0 1rem 0.75rem 1rem;
   border-radius: 50%;
 }
 
@@ -50,7 +55,7 @@ $base-grey-color: #f0f0f0;
   #plus {
     font-size: 3.5rem;
     line-height: 3rem;
-    padding: 0 0.75rem 0.75rem 0.75rem;
+    padding: 0 1rem 0.75rem 1rem;
     border: 1px solid black;
     animation: border-flash 1s linear infinite;
   }

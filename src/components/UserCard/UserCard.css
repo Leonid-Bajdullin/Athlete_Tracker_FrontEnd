@@ -1,4 +1,6 @@
 .user-card {
+  width: 15rem;
+  height: 20rem;
   margin: 10px;
   border-radius: 0.5rem;
   box-shadow: 0.25rem 0.25rem 0.5rem grey; }
@@ -7,12 +9,13 @@
     position: relative; }
     .user-card .user-photo .position {
       position: absolute;
-      top: 0.5rem;
-      left: 1rem;
+      width: 100%;
+      bottom: 0rem;
+      left: 0rem;
       font-weight: 700;
-      padding: 0.25rem;
-      border: 1px solid black;
-      border-radius: 50%; }
+      padding: 0 1rem;
+      display: block;
+      background-color: #cf7207; }
   .user-card img {
     object-fit: cover;
     height: 100%;
@@ -29,11 +32,13 @@
       height: 50%;
       display: flex;
       align-items: center;
-      font-weight: 900; }
+      font-weight: 900;
+      font-family: 'Indie Flower', cursive; }
     .user-card .user-info .description {
       height: 50%;
       display: flex;
-      align-items: center; }
+      align-items: center;
+      font-family: 'Indie Flower', cursive; }
     .user-card .user-info .button-div {
       position: absolute;
       left: 0;
@@ -43,7 +48,7 @@
       width: 100%;
       border-radius: 0 0 0.25rem 0.25rem;
       display: none;
-      opacity: 0.8; }
+      opacity: 0.9; }
     .user-card .user-info .usercard-button-left {
       height: 100%;
       width: 50%;
@@ -61,14 +66,15 @@
   top: 0.5rem;
   width: 1.5rem;
   height: 1.5rem;
-  opacity: 0.3; }
+  background-color: #c40d0d;
+  border-radius: 2px; }
 .user-card:hover .close:hover {
   opacity: 1;
   cursor: pointer; }
 .user-card:hover .close:before,
 .user-card:hover .close:after {
   position: absolute;
-  left: 0.65rem;
+  left: 11px;
   content: ' ';
   height: 1.5rem;
   width: 2px;

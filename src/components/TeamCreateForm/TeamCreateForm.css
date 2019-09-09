@@ -18,6 +18,9 @@
     height: 50%;
     width: 50%; }
 
+.form-label {
+  color: #4e5de5; }
+
 .form-img-container {
   height: 16rem;
   border-radius: 0.5rem; }
@@ -30,7 +33,7 @@
 #plus {
   font-size: 3.5rem;
   line-height: 3rem;
-  padding: 0 0.75rem 0.75rem 0.75rem;
+  padding: 0 1rem 0.75rem 1rem;
   border-radius: 50%; }
 
 #plus:hover {
@@ -39,7 +42,7 @@
 .team-card:hover #plus {
   font-size: 3.5rem;
   line-height: 3rem;
-  padding: 0 0.75rem 0.75rem 0.75rem;
+  padding: 0 1rem 0.75rem 1rem;
   border: 1px solid black;
   animation: border-flash 1s linear infinite; }
 

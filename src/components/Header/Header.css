@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  padding: 0 4rem;
+  height: 4rem;
+  background-color: #4e5de5;
+  border: 2px solid black; }
+  .header .search-input {
+    width: 30%;
+    border-radius: 0.25rem; }
+  .header .app-title {
+    width: 40%;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: 'Indie Flower', cursive;
+    text-shadow: 1px 1px 2px black;
+    transition: all 0.2s ease-out; }
+    .header .app-title a {
+      color: white; }
+    .header .app-title a:hover {
+      text-decoration: none; }
+  .header .app-title:hover {
+    transform: scale(1.1);
+    text-shadow: 3px 3px 3px black; }
+  .header .profile-tab {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .header .profile-tab .greeting-tab {
+      font-size: 1.25rem;
+      font-weight: 600;
+      padding: 0.375rem 0.75rem;
+      color: white;
+      font-family: 'Indie Flower', cursive; }
+
+/*# sourceMappingURL=Header.css.map */

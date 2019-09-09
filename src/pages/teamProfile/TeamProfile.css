@@ -55,6 +55,8 @@
     align-content: center;
     align-items: center;
     background-color: #4e5de5;
+    border: 2px solid black;
+    color: white;
     font-family: 'Indie Flower', cursive; }
 
 /*# sourceMappingURL=TeamProfile.css.map */

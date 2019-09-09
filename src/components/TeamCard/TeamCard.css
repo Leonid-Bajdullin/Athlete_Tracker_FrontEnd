@@ -1,4 +1,6 @@
 .team-card {
+  width: 15rem;
+  height: 20rem;
   margin: 10px;
   border-radius: 0.5rem;
   border: 2px solid black;
@@ -36,7 +38,7 @@
       width: 100%;
       border-radius: 0 0 0.25rem 0.25rem;
       display: none;
-      opacity: 0.8; }
+      opacity: 0.9; }
   .team-card .team-info:hover .button-div {
     display: inline-block; }
 

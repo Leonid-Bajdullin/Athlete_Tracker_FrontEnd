@@ -1,6 +1,8 @@
 $teamcard-border-radius: 0.5rem;
 
 .team-card {
+  width: 15rem;
+  height: 20rem;
   margin: 10px;
   border-radius: $teamcard-border-radius;
   border: 2px solid black;
@@ -43,7 +45,7 @@ $teamcard-border-radius: 0.5rem;
       width: 100%;
       border-radius: 0 0 0.25rem 0.25rem;
       display: none;
-      opacity: 0.8;
+      opacity: 0.9;
     }
   }
   .team-info:hover .button-div {
