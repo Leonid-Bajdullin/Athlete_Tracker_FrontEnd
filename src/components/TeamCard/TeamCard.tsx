@@ -31,36 +31,37 @@ export const TeamCard = inject('store')(
         : _.includes(teamMemberStates, props.position)
         ? (buttonView = (
             <Link to={`/teamprofile/${props.teamId}`}>
-              <Button variant='primary' className='button-div'>
+              <Button variant="primary" className="button-div">
                 View
               </Button>
             </Link>
           ))
         : props.position === 'pending'
         ? (buttonView = (
-            <Button variant='warning' className='button-div' disabled>
+            <Button variant="warning" className="button-div" disabled>
               Waiting approval
             </Button>
           ))
         : !props.position
         ? (buttonView = (
-            <Button variant='success' className='button-div' onClick={joinTeam}>
+            <Button variant="success" className="button-div" onClick={joinTeam}>
               Join
             </Button>
           ))
         : null;
 
       return (
-        <section
-          style={{ width: '15rem', height: '20rem' }}
-          className='team-card'
-        >
-          <div className='team-photo'>
-            <img alt='Team Photo' src={props.photoUrl} />
+        <section className="team-card">
+          <div className="team-photo">
+            <img
+              alt="Team Photo"
+              src={props.photoUrl || ''}
+              onError={(e: any) => (e.target.src = '/team_default_image.jpg')}
+            />
           </div>
-          <div className='team-info'>
-            <div className='title'>{props.name}</div>
-            <div className='description'>
+          <div className="team-info">
+            <div className="title">{props.name}</div>
+            <div className="description">
               Members count: {props.memberCount}
             </div>
             {buttonView}

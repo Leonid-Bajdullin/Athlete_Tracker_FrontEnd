@@ -57,6 +57,7 @@ export class TeamCreateForm extends Component<
       .then(() => {
         alert('Team successfully created');
         this.handleClose();
+        this.props.store.getUserTeams();
         this.props.onItemChange();
       })
       .catch((err) => {
@@ -67,19 +68,16 @@ export class TeamCreateForm extends Component<
   render() {
     return (
       <div>
-        <section
-          style={{ width: '15rem', height: '20rem' }}
-          className='team-card'
-        >
-          <div className='button-container'>
-            <div className='button-text'>Create your team</div>
-            <div id='plus' onClick={this.handleShow}>
+        <section className="team-card">
+          <div className="button-container">
+            <div className="button-text">Create your team</div>
+            <div id="plus" onClick={this.handleShow}>
               +
             </div>
           </div>
         </section>
 
-        <Modal size='lg' show={this.state.show} onHide={this.handleClose}>
+        <Modal size="lg" show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Create team</Modal.Title>
           </Modal.Header>
@@ -102,31 +100,31 @@ export class TeamCreateForm extends Component<
                       <Form.Group>
                         <Form.Label>Name</Form.Label>
                         <Form.Control
-                          name='name'
-                          type='text'
+                          name="name"
+                          type="text"
                           placeholder="Enter your team's name"
                           value={teamInputs.name}
                           onChange={handleChange}
                           isValid={touched.name && !errors.name}
                           isInvalid={!!errors.name}
                         ></Form.Control>
-                        <Form.Control.Feedback type='invalid'>
+                        <Form.Control.Feedback type="invalid">
                           {errors.name}
                         </Form.Control.Feedback>
                       </Form.Group>
                       <Form.Group>
                         <Form.Label>Description</Form.Label>
                         <Form.Control
-                          as='textarea'
-                          rows='10'
-                          name='description'
+                          as="textarea"
+                          rows="10"
+                          name="description"
                           value={teamInputs.description}
                           onChange={handleChange}
                           isValid={touched.description && !errors.description}
                           isInvalid={!!errors.description}
                         ></Form.Control>
                       </Form.Group>
-                      <Form.Control.Feedback type='invalid'>
+                      <Form.Control.Feedback type="invalid">
                         {errors.description}
                       </Form.Control.Feedback>
                     </Col>
@@ -135,31 +133,31 @@ export class TeamCreateForm extends Component<
                       <Form.Group>
                         <Form.Label>Photo URL</Form.Label>
                         <Form.Control
-                          name='photoUrl'
-                          type='text'
-                          placeholder='Enter photo URL'
+                          name="photoUrl"
+                          type="text"
+                          placeholder="Enter photo URL"
                           value={teamInputs.photoUrl}
                           onChange={handleChange}
                           isValid={touched.photoUrl && !errors.photoUrl}
                           isInvalid={!!errors.photoUrl}
                         ></Form.Control>
-                        <Form.Control.Feedback type='invalid'>
+                        <Form.Control.Feedback type="invalid">
                           {errors.photoUrl}
                         </Form.Control.Feedback>
                       </Form.Group>
                       <Form.Group>
                         <Form.Label>Photo preview</Form.Label>
-                        <div className='form-img-container'>
+                        <div className="form-img-container">
                           <Image
-                            className='form-img'
+                            className="form-img"
                             src={teamInputs.photoUrl}
-                            alt='Team Photo'
+                            alt="Team Photo"
                           ></Image>
                         </div>
                       </Form.Group>
                     </Col>
                   </Form.Row>
-                  <Button variant='success' type='submit'>
+                  <Button variant="success" type="submit">
                     Create team
                   </Button>
                 </Form>
