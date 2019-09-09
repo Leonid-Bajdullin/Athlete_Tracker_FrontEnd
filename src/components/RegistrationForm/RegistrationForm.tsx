@@ -6,6 +6,7 @@ import { Form, Button, Modal } from 'react-bootstrap';
 
 import { registrationSchema } from '../../validation/validationSchemaYup';
 import { UserService } from '../../services/UserService';
+import './RegistrationForm.css';
 
 const initialValues = {
   firstName: '',
@@ -63,7 +64,7 @@ export class RegistrationForm extends Component<
   render() {
     return (
       <>
-        <Button variant='danger' onClick={this.handleShow}>
+        <Button variant="danger" onClick={this.handleShow}>
           Sign up
         </Button>
 
@@ -85,76 +86,76 @@ export class RegistrationForm extends Component<
                 errors
               }) => (
                 <Form
-                  className='registration-form'
+                  className="registration-form"
                   noValidate
                   onSubmit={handleSubmit}
                 >
                   <Form.Group>
                     <Form.Label>First Name</Form.Label>
                     <Form.Control
-                      name='firstName'
-                      type='text'
-                      placeholder='Enter your first name'
+                      name="firstName"
+                      type="text"
+                      placeholder="Enter your first name"
                       value={userInputs.firstName}
                       onChange={handleChange}
                       isValid={touched.firstName && !errors.firstName}
                       isInvalid={!!errors.firstName}
                     />
-                    <Form.Control.Feedback type='invalid'>
+                    <Form.Control.Feedback type="invalid">
                       {errors.firstName}
                     </Form.Control.Feedback>
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Last Name</Form.Label>
                     <Form.Control
-                      name='lastName'
-                      type='text'
-                      placeholder='Enter your last name'
+                      name="lastName"
+                      type="text"
+                      placeholder="Enter your last name"
                       value={userInputs.lastName}
                       onChange={handleChange}
                       isValid={touched.lastName && !errors.lastName}
                       isInvalid={!!errors.lastName}
                     />
-                    <Form.Control.Feedback type='invalid'>
+                    <Form.Control.Feedback type="invalid">
                       {errors.lastName}
                     </Form.Control.Feedback>
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Email</Form.Label>
                     <Form.Control
-                      name='email'
-                      type='email'
-                      placeholder='Enter your email'
+                      name="email"
+                      type="email"
+                      placeholder="Enter your email"
                       value={userInputs.email}
                       onChange={handleChange}
                       isValid={touched.email && !errors.email}
                       isInvalid={!!errors.email}
                     ></Form.Control>
-                    <Form.Control.Feedback type='invalid'>
+                    <Form.Control.Feedback type="invalid">
                       {errors.email}
                     </Form.Control.Feedback>
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Password</Form.Label>
                     <Form.Control
-                      name='password'
-                      type='password'
-                      placeholder='Enter your password'
+                      name="password"
+                      type="password"
+                      placeholder="Enter your password"
                       value={userInputs.password}
                       onChange={handleChange}
                       isValid={touched.password && !errors.password}
                       isInvalid={!!errors.password}
                     />
-                    <Form.Control.Feedback type='invalid'>
+                    <Form.Control.Feedback type="invalid">
                       {errors.password}
                     </Form.Control.Feedback>
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Password Confirmation</Form.Label>
                     <Form.Control
-                      name='passwordConfirmation'
-                      type='password'
-                      placeholder='Enter your password again'
+                      name="passwordConfirmation"
+                      type="password"
+                      placeholder="Enter your password again"
                       value={userInputs.passwordConfirmation}
                       onChange={handleChange}
                       isValid={
@@ -163,12 +164,12 @@ export class RegistrationForm extends Component<
                       }
                       isInvalid={!!errors.passwordConfirmation}
                     />
-                    <Form.Control.Feedback type='invalid'>
+                    <Form.Control.Feedback type="invalid">
                       {errors.passwordConfirmation}
                     </Form.Control.Feedback>
                   </Form.Group>
-                  <footer className='flex-center'>
-                    <Button variant='success' type='submit'>
+                  <footer className="flex-center">
+                    <Button variant="success" type="submit">
                       Sign up
                     </Button>
                   </footer>
