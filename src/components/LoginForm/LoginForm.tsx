@@ -42,11 +42,11 @@ export class LoginForm extends Component<{ store?: any }, { show: boolean }> {
   render() {
     return (
       <>
-        <Button variant="success" onClick={this.handleShow}>
-          Sign in
+        <Button variant='success' onClick={this.handleShow}>
+          Log in
         </Button>
 
-        <Modal size="sm" show={this.state.show} onHide={this.handleClose}>
+        <Modal size='sm' show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Login</Modal.Title>
           </Modal.Header>
@@ -63,40 +63,40 @@ export class LoginForm extends Component<{ store?: any }, { show: boolean }> {
                 touched,
                 errors
               }) => (
-                <Form className="login-form" noValidate onSubmit={handleSubmit}>
-                  <Form.Group controlId="loginEmail">
+                <Form className='login-form' noValidate onSubmit={handleSubmit}>
+                  <Form.Group controlId='loginEmail'>
                     <Form.Label>Email</Form.Label>
                     <Form.Control
-                      name="email"
-                      type="text"
-                      placeholder="Enter your email"
+                      name='email'
+                      type='text'
+                      placeholder='Enter your email'
                       value={userInputs.email}
                       onChange={handleChange}
                       isValid={touched.email && !errors.email}
                       isInvalid={!!errors.email}
                     />
-                    <Form.Control.Feedback type="invalid">
+                    <Form.Control.Feedback type='invalid'>
                       {errors.email}
                     </Form.Control.Feedback>
                   </Form.Group>
-                  <Form.Group controlId="loginPassword">
+                  <Form.Group controlId='loginPassword'>
                     <Form.Label>Password</Form.Label>
                     <Form.Control
-                      name="password"
-                      type="password"
-                      placeholder="Enter your password"
+                      name='password'
+                      type='password'
+                      placeholder='Enter your password'
                       value={userInputs.password}
                       onChange={handleChange}
                       isValid={touched.password && !errors.password}
                       isInvalid={!!errors.password}
                     />
-                    <Form.Control.Feedback type="invalid">
+                    <Form.Control.Feedback type='invalid'>
                       {errors.password}
                     </Form.Control.Feedback>
                   </Form.Group>
 
-                  <footer className="flex-center">
-                    <Button variant="success" type="submit">
+                  <footer className='flex-center'>
+                    <Button variant='success' type='submit'>
                       Sign in
                     </Button>
                   </footer>
