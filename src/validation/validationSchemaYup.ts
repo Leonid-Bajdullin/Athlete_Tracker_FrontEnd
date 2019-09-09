@@ -54,5 +54,5 @@ export const userProfileSchema = Yup.object().shape({
 export const teamCreateSchema = Yup.object().shape({
   name: Yup.string().required('Required'),
   photoUrl: photoUrl,
-  description: Yup.string().max(250, 'Should be no more than 250 letters long')
+  description: Yup.string()
 });
