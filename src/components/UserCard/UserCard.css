@@ -1,0 +1,93 @@
+.user-card {
+  width: 15rem;
+  height: 20rem;
+  margin: 10px;
+  border-radius: 0.5rem;
+  box-shadow: 0.25rem 0.25rem 0.5rem grey; }
+  .user-card .user-photo {
+    height: 70%;
+    position: relative; }
+    .user-card .user-photo .position {
+      position: absolute;
+      width: 100%;
+      bottom: 0rem;
+      left: 0rem;
+      font-weight: 700;
+      padding: 0 1rem;
+      display: block;
+      background-color: #cf7207; }
+  .user-card img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 0.5rem 0.5rem 0rem 0rem; }
+  .user-card .user-info {
+    height: 30%;
+    background-color: white;
+    border-radius: 0rem 0rem 0.5rem 0.5rem;
+    position: relative; }
+    .user-card .user-info div {
+      padding: 0rem 1rem; }
+    .user-card .user-info .title {
+      height: 50%;
+      display: flex;
+      align-items: center;
+      font-weight: 900;
+      font-family: 'Indie Flower', cursive; }
+    .user-card .user-info .description {
+      height: 50%;
+      display: flex;
+      align-items: center;
+      font-family: 'Indie Flower', cursive; }
+    .user-card .user-info .button-div {
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 0 0 0.25rem 0.25rem;
+      display: none;
+      opacity: 0.9; }
+    .user-card .user-info .usercard-button-left {
+      height: 100%;
+      width: 50%;
+      border-radius: 0 0 0 0.25rem; }
+    .user-card .user-info .usercard-button-right {
+      height: 100%;
+      width: 50%;
+      border-radius: 0 0 0.25rem 0; }
+  .user-card .user-info:hover .button-div {
+    display: inline-block; }
+
+.user-card:hover .close {
+  position: absolute;
+  right: 0.75rem;
+  top: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #c40d0d;
+  border-radius: 2px; }
+.user-card:hover .close:hover {
+  opacity: 1;
+  cursor: pointer; }
+.user-card:hover .close:before,
+.user-card:hover .close:after {
+  position: absolute;
+  left: 11px;
+  content: ' ';
+  height: 1.5rem;
+  width: 2px;
+  background-color: #333; }
+.user-card:hover .close:before {
+  transform: rotate(45deg); }
+.user-card:hover .close:after {
+  transform: rotate(-45deg); }
+
+.tooltip {
+  background-color: white;
+  border-radius: 0.25rem;
+  border: 1px solid black;
+  padding: 0 0.25rem; }
+
+/*# sourceMappingURL=UserCard.css.map */

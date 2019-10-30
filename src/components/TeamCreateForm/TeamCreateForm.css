@@ -1,0 +1,57 @@
+.button-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0.5rem 0 0;
+  border-radius: 0.5rem; }
+  .button-container .button-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: 1.5rem;
+    text-align: center; }
+  .button-container .add-team-button {
+    height: 50%;
+    width: 50%; }
+
+.form-label {
+  color: #4e5de5; }
+
+.form-img-container {
+  height: 16rem;
+  border-radius: 0.5rem; }
+  .form-img-container .form-img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 0.5rem; }
+
+#plus {
+  font-size: 3.5rem;
+  line-height: 3rem;
+  padding: 0 1rem 0.75rem 1rem;
+  border-radius: 50%; }
+
+#plus:hover {
+  cursor: pointer; }
+
+.team-card:hover #plus {
+  font-size: 3.5rem;
+  line-height: 3rem;
+  padding: 0 1rem 0.75rem 1rem;
+  border: 1px solid black;
+  animation: border-flash 1s linear infinite; }
+
+@keyframes border-flash {
+  0% {
+    box-shadow: 0 0 0 6px #f0f0f0, 0 0 0 8px black; }
+  50% {
+    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 4px black; }
+  100% {
+    box-shadow: 0 0 0 6px #f0f0f0, 0 0 0 8px black; } }
+
+/*# sourceMappingURL=TeamCreateForm.css.map */
