@@ -1,0 +1,79 @@
+$base-grey-color: #f0f0f0;
+$base-blue-color: #4e5de5;
+
+.teamprofile-container {
+  position: relative;
+  min-height: 100vh;
+  .team-profile-header {
+    height: 4rem;
+    padding: 0 4rem;
+    background-color: $base-blue-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .app-title {
+      width: 40%;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      font-family: 'Indie Flower', cursive;
+      text-shadow: 1px 1px 2px black;
+      a {
+        color: black;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .team-profile-top {
+    height: 30rem;
+    margin: 1rem;
+    .team-profile-photo {
+      float: left;
+      height: 100%;
+      width: 30%;
+    }
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+    .team-profile-description {
+      float: right;
+      height: 100%;
+      width: 70%;
+      padding: 0 1rem;
+      overflow: hidden;
+    }
+  }
+  .members-list-container {
+    padding: 1rem 2rem 4rem 2rem;
+    background-color: $base-grey-color;
+    h2 {
+      font-weight: 700;
+    }
+  }
+  .all-members-list {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 20rem;
+    padding: 0.5rem;
+  }
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background-color: $base-blue-color;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    color: white;
+    font-family: 'Indie Flower', cursive;
+  }
+}

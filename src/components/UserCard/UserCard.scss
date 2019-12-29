@@ -1,0 +1,117 @@
+$usercard-border-radius: 0.5rem;
+$base-blue-color: #4e5de5;
+
+.user-card {
+  width: 15rem;
+  height: 20rem;
+  margin: 10px;
+  border-radius: $usercard-border-radius;
+  box-shadow: 0.25rem 0.25rem 0.5rem grey;
+  .user-photo {
+    height: 70%;
+    position: relative;
+    .position {
+      position: absolute;
+      width: 100%;
+      bottom: 0rem;
+      left: 0rem;
+      font-weight: 700;
+      padding: 0 1rem;
+      // border: 1px solid black;
+      display: block;
+      background-color: hsl(32, 93%, 42%);
+    }
+  }
+  img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: $usercard-border-radius $usercard-border-radius 0rem 0rem;
+  }
+  .user-info {
+    height: 30%;
+    background-color: white;
+    border-radius: 0rem 0rem $usercard-border-radius $usercard-border-radius;
+    position: relative;
+    div {
+      padding: 0rem 1rem;
+    }
+    .title {
+      height: 50%;
+      display: flex;
+      align-items: center;
+      font-weight: 900;
+      font-family: 'Indie Flower', cursive;
+    }
+    .description {
+      height: 50%;
+      display: flex;
+      align-items: center;
+      font-family: 'Indie Flower', cursive;
+    }
+    .button-div {
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 0 0 0.25rem 0.25rem;
+      display: none;
+      opacity: 0.9;
+    }
+
+    .usercard-button-left {
+      height: 100%;
+      width: 50%;
+      border-radius: 0 0 0 0.25rem;
+    }
+    .usercard-button-right {
+      height: 100%;
+      width: 50%;
+      border-radius: 0 0 0.25rem 0;
+    }
+  }
+  .user-info:hover .button-div {
+    display: inline-block;
+  }
+}
+
+.user-card:hover {
+  .close {
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    // opacity: 0.3;
+    background-color: rgb(196, 13, 13);
+    border-radius: 2px;
+  }
+  .close:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  .close:before,
+  .close:after {
+    position: absolute;
+    left: 11px;
+    content: ' ';
+    height: 1.5rem;
+    width: 2px;
+    background-color: #333;
+  }
+  .close:before {
+    transform: rotate(45deg);
+  }
+  .close:after {
+    transform: rotate(-45deg);
+  }
+}
+
+.tooltip {
+  background-color: white;
+  border-radius: 0.25rem;
+  border: 1px solid black;
+  padding: 0 0.25rem;
+}

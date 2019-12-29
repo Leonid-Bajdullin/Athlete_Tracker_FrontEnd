@@ -1,0 +1,38 @@
+$base-grey-color: #f0f0f0;
+$base-blue-color: #4e5de5;
+$modal-padding: 0.75rem;
+
+.user-profile {
+  .update-user {
+    height: 100%;
+    width: 100%;
+  }
+  .form-group {
+    background-color: white;
+    border-radius: 0.25rem;
+  }
+  .form-label {
+    font-weight: 600;
+    padding-left: $modal-padding;
+    padding-top: 0.75rem;
+    margin-bottom: 0rem;
+    color: $base-blue-color;
+  }
+  .invalid-feedback {
+    padding-left: $modal-padding;
+    background-color: $base-grey-color;
+  }
+  .form-control {
+    border: none;
+    padding-top: 0rem;
+  }
+  .image-container {
+    height: 50%;
+    border: 2px solid $base-blue-color;
+    .profile-img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.user-profile .update-user {
+  height: 100%;
+  width: 100%; }
+.user-profile .form-group {
+  background-color: white;
+  border-radius: 0.25rem; }
+.user-profile .form-label {
+  font-weight: 600;
+  padding-left: 0.75rem;
+  padding-top: 0.75rem;
+  margin-bottom: 0rem;
+  color: #4e5de5; }
+.user-profile .invalid-feedback {
+  padding-left: 0.75rem;
+  background-color: #f0f0f0; }
+.user-profile .form-control {
+  border: none;
+  padding-top: 0rem; }
+.user-profile .image-container {
+  height: 50%;
+  border: 2px solid #4e5de5; }
+  .user-profile .image-container .profile-img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%; }
+
+/*# sourceMappingURL=UserProfile.css.map */

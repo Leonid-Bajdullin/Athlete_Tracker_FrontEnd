@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Provider } from 'mobx-react';
+import { Container } from 'typedi';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import './App.css';
+import { RootStore } from './stores/RootStore';
+import MainPage from './pages/mainPage/MainPage';
+import { UserService } from './services/UserService';
+import { TeamProfile } from './pages/teamProfile/TeamProfile';
+
+const rootStore = new RootStore(Container.get(UserService));
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={rootStore}>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={MainPage} />
+          <Route path="/teamprofile/:teamId" component={TeamProfile} />
+        </Switch>
+      </Router>
+    </Provider>
   );
-}
+};
 
 export default App;
